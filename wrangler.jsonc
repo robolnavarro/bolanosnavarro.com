@@ -1,0 +1,12 @@
+{
+  // Configuración del Worker que publica bolanosnavarro.com (Cloudflare Workers Builds la usa en cada push a main)
+  "name": "bolanosnavarro",
+  "main": "src/worker.js",
+  "compatibility_date": "2026-05-01",
+  "workers_dev": true,
+  "routes": [{ "pattern": "bolanosnavarro.com", "custom_domain": true }],
+  "assets": { "directory": ".", "binding": "ASSETS" },
+  "d1_databases": [
+    { "binding": "DB", "database_name": "testimonios", "database_id": "PENDIENTE_ID_D1" }
+  ]
+}

@@ -2,8 +2,11 @@
 
 Este repositorio es el sitio en vivo de bolanosnavarro.com, publicado como
 Cloudflare Worker (proyecto `bolanosnavarro`) conectado a este repo: cada push
-a `main` se publica solo en ~1 minuto. No hay proceso de build: son archivos
-HTML estáticos. Copia de prueba: https://bolanosnavarro.rodrigo-825.workers.dev
+a `main` se publica solo en ~1 minuto (Workers Builds corre `wrangler deploy`
+con `wrangler.jsonc`). Las páginas son HTML estático; `src/worker.js` solo
+atiende `/api/*` (testimonios) y lo demás lo sirve de los archivos.
+`.assetsignore` evita publicar `src/`, `wrangler.jsonc` y este archivo.
+Copia de prueba: https://bolanosnavarro.rodrigo-825.workers.dev
 
 ## Dominio y DNS
 - El dominio está registrado en Squarespace, pero el DNS lo maneja Cloudflare.
@@ -23,13 +26,21 @@ HTML estáticos. Copia de prueba: https://bolanosnavarro.rodrigo-825.workers.dev
   Solo redirigen a /#torre (conservando ?utm) y traen título/descripción propios
   para la vista previa de WhatsApp. Si se agrega un entregable: tarjeta en `.hub`,
   entrada en `TOOLMAP` y su archivo corto.
-- `testimonio.html` — formulario de testimonios (Grupo Navarro + despacho),
-  envía por WhatsApp al 443 128 1399.
+- `testimonio.html` — formulario de testimonios (Grupo Navarro + despacho), no
+  enlazado desde el sitio. Guarda en la base D1 `testimonios` como "pendiente";
+  si falla, ofrece mandarlo por WhatsApp al 443 128 1399.
+- `admin.html` — panel privado en bolanosnavarro.com/admin. Pide la clave
+  `ADMIN_KEY` (secreto del Worker en Cloudflare, nunca en el repo) y permite
+  aprobar, quitar o rechazar. Solo los aprobados salen en el sitio.
+- Prueba local: `npx wrangler dev --local` con `ADMIN_KEY` en `.dev.vars`
+  (ignorado por git).
 
 ## Dónde editar cada cosa (dentro de index.html)
-- **Testimonios**: array `TESTIMONIOS` en el <script> final.
-  Formato: {t:'texto', n:'nombre', u:'inmo'|'desp', src:'google' (opcional), m:'materia' (opcional)}.
-  Se pintan solos en Inicio (todos) y en Despacho (solo u:'desp').
+- **Testimonios**: array `TESTIMONIOS` en el <script> final (los fijos, p. ej.
+  reseñas de Google). Formato: {t:'texto', n:'nombre', u:'inmo'|'desp',
+  src:'google' (opcional), m:'materia' (opcional)}. Al cargar, el sitio agrega
+  antes los aprobados de `/api/testimonios`. Se pintan en Inicio (todos) y en
+  Despacho (solo u:'desp').
 - **Cifras de la banda**: buscar `1,000+` / `$500M+` en la sección .band.
 - **Precios y parámetros de las corridas San Pedro**: constantes
   `PRECIO=1278250, TASA=0.105/12, NPER=240, CAPPCT=0.325, SEG=1.12` en el <script>.

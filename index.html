@@ -682,6 +682,13 @@ footer a{color:#D9DFD9}
   }
   renderQuotes('quotesHome',null);
   renderQuotes('quotesDesp','desp');
+  // Testimonios del formulario ya aprobados en /admin: se agregan antes de los fijos.
+  fetch('/api/testimonios').then(function(r){return r.ok?r.json():[];}).then(function(lista){
+    if(!Array.isArray(lista)||!lista.length) return;
+    TESTIMONIOS=lista.concat(TESTIMONIOS);
+    renderQuotes('quotesHome',null);
+    renderQuotes('quotesDesp','desp');
+  }).catch(function(){});
 
   /* ---- Abrir/cerrar herramientas ---- */
   document.querySelectorAll('.tool-toggle').forEach(function(b){

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Testimonios — Panel</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap">
+<style>
+:root{
+  --bg:#FFFFFF; --surface:#F4F6F3; --ink:#101512; --muted:#59645C;
+  --green:#15672A; --green-bright:#1E8A38; --line:#E3E7E1; --bad:#B0341E; --warn:#B07A1E;
+  --input-bg:#FFFDF2; --input-line:#D9CFA0; --on-green:#fff;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0E1410; --surface:#161E18; --ink:#EDF1EC; --muted:#9AA79D;
+    --green:#3FA85B; --green-bright:#4BBF69; --line:#243029; --bad:#E06A55; --warn:#D9A94A;
+    --input-bg:#1B231C; --input-line:#3A4A3E; --on-green:#07130B;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0E1410; --surface:#161E18; --ink:#EDF1EC; --muted:#9AA79D;
+  --green:#3FA85B; --green-bright:#4BBF69; --line:#243029; --bad:#E06A55; --warn:#D9A94A;
+  --input-bg:#1B231C; --input-line:#3A4A3E; --on-green:#07130B;
+}
+[hidden]{display:none!important}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:'Archivo',system-ui,sans-serif;font-size:1rem;line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:760px;margin:0 auto;padding:clamp(1.4rem,4vw,2.6rem) 16px 4rem}
+h1{font-weight:900;text-transform:uppercase;letter-spacing:-.01em;font-size:clamp(1.6rem,5vw,2.2rem)}
+.sub{color:var(--muted);margin-top:.3rem}
+.login{margin-top:1.6rem;display:grid;gap:.7rem;max-width:420px}
+label{font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:.03em;color:var(--muted)}
+input[type=password]{width:100%;font:inherit;font-size:1.05rem;color:var(--ink);background:var(--input-bg);border:1.5px solid var(--input-line);border-radius:6px;padding:.75rem .9rem}
+.recordar{display:flex;gap:.5rem;align-items:center;font-size:.92rem;color:var(--muted)}
+button{font-family:inherit;font-weight:800;text-transform:uppercase;letter-spacing:.04em;font-size:.85rem;border:0;border-radius:6px;padding:.7rem 1.1rem;cursor:pointer;background:var(--green);color:var(--on-green)}
+button.line{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+button.bad{background:transparent;color:var(--bad);border:1.5px solid var(--bad)}
+button[disabled]{opacity:.5;cursor:wait}
+.msg{margin-top:1rem;font-weight:600;color:var(--bad)}
+.bar{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;margin-top:1.6rem}
+.tabs{display:flex;flex-wrap:wrap;gap:.4rem;flex:1}
+.tabs button{background:var(--surface);color:var(--muted);border:1.5px solid var(--line)}
+.tabs button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.list{display:grid;gap:1rem;margin-top:1.2rem}
+.card{border:1px solid var(--line);border-radius:8px;padding:1.1rem 1.2rem;background:var(--surface)}
+.meta{display:flex;flex-wrap:wrap;gap:.3rem .8rem;font-size:.82rem;color:var(--muted);font-weight:600}
+.tag{text-transform:uppercase;letter-spacing:.03em;font-weight:800}
+.tag.pendiente{color:var(--warn)} .tag.aprobado{color:var(--green)} .tag.rechazado{color:var(--bad)}
+.card blockquote{margin:.7rem 0;font-size:1.05rem;white-space:pre-wrap}
+.who{font-weight:700}
+.who small{color:var(--muted);font-weight:500}
+.acts{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.8rem}
+.vacio{color:var(--muted);margin-top:1.2rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Testimonios</h1>
+  <p class="sub">Revisa lo que llega del formulario. Solo los aprobados aparecen en bolanosnavarro.com.</p>
+
+  <form class="login" id="login">
+    <label for="clave">Clave de administrador</label>
+    <input type="password" id="clave" autocomplete="current-password" required>
+    <label class="recordar"><input type="checkbox" id="recordar" checked> Recordar en este dispositivo</label>
+    <button type="submit">Entrar</button>
+  </form>
+  <p class="msg" id="msg" hidden></p>
+
+  <div id="panel" hidden>
+    <div class="bar">
+      <div class="tabs" role="group" aria-label="Filtrar">
+        <button type="button" data-f="pendiente" aria-pressed="true">Pendientes</button>
+        <button type="button" data-f="aprobado" aria-pressed="false">Publicados</button>
+        <button type="button" data-f="rechazado" aria-pressed="false">Rechazados</button>
+      </div>
+      <button type="button" class="line" id="salir">Salir</button>
+    </div>
+    <div class="list" id="list"></div>
+  </div>
+</div>
+<script>
+(function(){
+  'use strict';
+  var KEY='bn_admin_key', clave='', filtro='pendiente', datos=[];
+  var UNIDAD={inmo:'Grupo Navarro',desp:'Bolaños Navarro & Asociados'};
+  var PUB={nombre:'nombre completo',pila:'solo nombre de pila',iniciales:'solo iniciales'};
+  function $(id){return document.getElementById(id);}
+  function guardada(){try{return localStorage.getItem(KEY)||'';}catch(e){return '';}}
+  function guardar(v){try{v?localStorage.setItem(KEY,v):localStorage.removeItem(KEY);}catch(e){}}
+  function aviso(t){$('msg').textContent=t;$('msg').hidden=!t;}
+
+  function api(path,opts){
+    opts=opts||{};opts.headers=Object.assign({'X-Admin-Key':clave,'Content-Type':'application/json'},opts.headers||{});
+    return fetch(path,opts).then(function(r){
+      return r.json().catch(function(){return {};}).then(function(j){if(!r.ok)throw Object.assign(new Error(j.error||r.status),{status:r.status});return j;});
+    });
+  }
+  function cargar(){
+    return api('/api/admin/testimonios').then(function(j){
+      datos=j;$('login').hidden=true;$('panel').hidden=false;aviso('');pintar();
+    }).catch(function(e){
+      if(e.status===401){guardar('');clave='';$('login').hidden=false;$('panel').hidden=true;aviso('Clave incorrecta.');}
+      else aviso('No se pudo cargar ('+e.message+').');
+    });
+  }
+  function pintar(){
+    document.querySelectorAll('.tabs button').forEach(function(b){
+      var n=datos.filter(function(x){return x.estado===b.dataset.f;}).length;
+      b.textContent={pendiente:'Pendientes',aprobado:'Publicados',rechazado:'Rechazados'}[b.dataset.f]+' ('+n+')';
+      b.setAttribute('aria-pressed',b.dataset.f===filtro?'true':'false');
+    });
+    var list=$('list');list.innerHTML='';
+    var items=datos.filter(function(x){return x.estado===filtro;});
+    if(!items.length){var p=document.createElement('p');p.className='vacio';p.textContent='No hay testimonios aquí.';list.appendChild(p);return;}
+    items.forEach(function(x){
+      var c=document.createElement('article');c.className='card';
+      var meta=document.createElement('div');meta.className='meta';
+      [[x.estado,'tag '+x.estado],[UNIDAD[x.unidad]||x.unidad,''],[x.materia,''],[fecha(x.creado),'']].forEach(function(m){
+        if(!m[0])return;var s=document.createElement('span');s.textContent=m[0];if(m[1])s.className=m[1];meta.appendChild(s);
+      });
+      var q=document.createElement('blockquote');q.textContent='“'+x.texto+'”';
+      var w=document.createElement('div');w.className='who';w.textContent=x.nombre+' ';
+      var sm=document.createElement('small');sm.textContent='· publicar con '+(PUB[x.publica]||x.publica);w.appendChild(sm);
+      var acts=document.createElement('div');acts.className='acts';
+      if(x.estado!=='aprobado')acts.appendChild(boton('Aprobar y publicar','',x.id,'aprobado'));
+      if(x.estado==='aprobado')acts.appendChild(boton('Quitar del sitio','line',x.id,'pendiente'));
+      if(x.estado!=='rechazado')acts.appendChild(boton('Rechazar','bad',x.id,'rechazado'));
+      c.appendChild(meta);c.appendChild(q);c.appendChild(w);c.appendChild(acts);list.appendChild(c);
+    });
+  }
+  function boton(txt,cls,id,estado){
+    var b=document.createElement('button');b.type='button';b.textContent=txt;if(cls)b.className=cls;
+    b.addEventListener('click',function(){
+      b.disabled=true;
+      api('/api/admin/testimonios/'+id,{method:'POST',body:JSON.stringify({estado:estado})})
+        .then(cargar).catch(function(e){aviso('No se pudo actualizar ('+e.message+').');b.disabled=false;});
+    });
+    return b;
+  }
+  function fecha(s){var d=new Date((s||'').replace(' ','T')+'Z');return isNaN(d)?s:d.toLocaleString('es-MX',{dateStyle:'medium',timeStyle:'short'});}
+
+  $('login').addEventListener('submit',function(e){
+    e.preventDefault();clave=$('clave').value.trim();if(!clave)return;
+    if($('recordar').checked)guardar(clave);
+    cargar();
+  });
+  document.querySelectorAll('.tabs button').forEach(function(b){b.addEventListener('click',function(){filtro=b.dataset.f;pintar();});});
+  $('salir').addEventListener('click',function(){guardar('');clave='';datos=[];$('clave').value='';$('panel').hidden=true;$('login').hidden=false;});
+
+  clave=guardada();if(clave)cargar();
+})();
+</script>
+</body>
+</html>
