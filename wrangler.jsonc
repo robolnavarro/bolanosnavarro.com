@@ -4,6 +4,8 @@
   "main": "src/worker.js",
   "compatibility_date": "2026-05-01",
   "workers_dev": true,
+  // Conserva variables creadas en el panel de Cloudflare (ADMIN_KEY va como Secret y nunca en este archivo)
+  "keep_vars": true,
   "routes": [{ "pattern": "bolanosnavarro.com", "custom_domain": true }],
   "assets": { "directory": ".", "binding": "ASSETS" },
   "d1_databases": [
