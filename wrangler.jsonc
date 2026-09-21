@@ -7,6 +7,6 @@
   "routes": [{ "pattern": "bolanosnavarro.com", "custom_domain": true }],
   "assets": { "directory": ".", "binding": "ASSETS" },
   "d1_databases": [
-    { "binding": "DB", "database_name": "testimonios", "database_id": "PENDIENTE_ID_D1" }
+    { "binding": "DB", "database_name": "testimonios", "database_id": "d21f0720-6519-4a60-a4e0-851a78484205" }
   ]
 }
