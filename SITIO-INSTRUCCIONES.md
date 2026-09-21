@@ -1,8 +1,17 @@
 # Sitio bolanosnavarro.com — instrucciones para Claude Code
 
-Este repositorio es el sitio en vivo de bolanosnavarro.com, publicado con
-Cloudflare Pages conectado a este repo: cada push a `main` se publica solo
-en ~1 minuto. No hay proceso de build: son archivos HTML estáticos.
+Este repositorio es el sitio en vivo de bolanosnavarro.com, publicado como
+Cloudflare Worker (proyecto `bolanosnavarro`) conectado a este repo: cada push
+a `main` se publica solo en ~1 minuto. No hay proceso de build: son archivos
+HTML estáticos. Copia de prueba: https://bolanosnavarro.rodrigo-825.workers.dev
+
+## Dominio y DNS
+- El dominio está registrado en Squarespace, pero el DNS lo maneja Cloudflare.
+- `bolanosnavarro.com` es el dominio personalizado del Worker.
+- `www` redirige con 301 a `bolanosnavarro.com` (regla de Redirect en Cloudflare).
+- No tocar los registros de correo de Google Workspace: MX `smtp.google.com`,
+  TXT SPF y TXT `google._domainkey` (DKIM).
+- Cloudflare usa URLs limpias: `/testimonio.html` redirige a `/testimonio`.
 
 ## Archivos
 - `index.html` — sitio maestro. Tres vistas por hash: #inicio, #inmobiliaria, #despacho.
