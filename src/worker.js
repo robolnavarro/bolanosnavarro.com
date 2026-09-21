@@ -3,7 +3,7 @@
 //   POST /api/testimonios            el formulario guarda un testimonio como "pendiente"
 //   GET  /api/testimonios            testimonios aprobados, ya listos para mostrar en el sitio
 //   GET  /api/admin/testimonios      todos, para la página privada /admin (requiere X-Admin-Key)
-//   POST /api/admin/testimonios/:id  cambia el estado: aprobado | rechazado | pendiente
+//   POST /api/admin/testimonios/:id  cambia estado (aprobado | rechazado | pendiente), unidad o materia
 
 const ESTADOS = ['pendiente', 'aprobado', 'rechazado'];
 const UNIDADES = ['inmo', 'desp'];
@@ -55,10 +55,21 @@ async function api(req, env, url) {
     const m = p.match(/^\/api\/admin\/testimonios\/(\d+)$/);
     if (m && req.method === 'POST') {
       const body = await req.json().catch(() => ({}));
-      if (!ESTADOS.includes(body.estado)) return json({ error: 'Estado inválido' }, 400);
+      // Cambios permitidos: estado (aprobar/rechazar) y reclasificación (unidad, materia).
+      const sets = [], vals = [];
+      if (body.estado !== undefined) {
+        if (!ESTADOS.includes(body.estado)) return json({ error: 'Estado inválido' }, 400);
+        sets.push("estado = ?", "revisado = datetime('now')"); vals.push(body.estado);
+      }
+      if (body.unidad !== undefined) {
+        if (!UNIDADES.includes(body.unidad)) return json({ error: 'Unidad inválida' }, 400);
+        sets.push('unidad = ?'); vals.push(body.unidad);
+      }
+      if (body.materia !== undefined) { sets.push('materia = ?'); vals.push(limpiar(body.materia, 120)); }
+      if (!sets.length) return json({ error: 'Nada que cambiar' }, 400);
       const r = await env.DB.prepare(
-        "UPDATE testimonios SET estado = ?, revisado = datetime('now') WHERE id = ?"
-      ).bind(body.estado, Number(m[1])).run();
+        `UPDATE testimonios SET ${sets.join(', ')} WHERE id = ?`
+      ).bind(...vals, Number(m[1])).run();
       if (!r.meta.changes) return json({ error: 'No existe' }, 404);
       return json({ ok: true });
     }
