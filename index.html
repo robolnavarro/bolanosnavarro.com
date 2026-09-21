@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Rodrigo Bolaños Navarro — Bienes Raíces y Derecho en Morelia</title>
-<meta name="description" content="Rodrigo Bolaños Navarro: Director General de Grupo Navarro y abogado titular de Bolaños Navarro &amp; Asociados. Morelia, Michoacán.">
+<meta name="description" content="Rodrigo Bolaños Navarro: parte del equipo de Grupo Navarro y abogado titular de Bolaños Navarro &amp; Asociados. Morelia, Michoacán.">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap">
 <style>
 :root{
@@ -52,6 +52,13 @@ nav a[aria-current="page"]{color:var(--ink);box-shadow:inset 0 -3px 0 var(--gree
 :root[data-theme="dark"] .nav-wa{color:#07130B}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .nav-wa{color:#07130B}}
 @media (max-width:760px){.nav-wa{display:none}}
+@media (max-width:560px){
+  .nav{flex-wrap:wrap;justify-content:center;height:auto;gap:0;padding-top:.6rem}
+  nav{width:100%}
+  nav ul{justify-content:space-between;gap:0}
+  nav a{display:block;font-size:.82rem;padding:.7rem .5rem}
+}
+html,body{overflow-x:clip}
 
 .view{display:none}
 .view.active{display:block}
@@ -229,7 +236,7 @@ footer a{color:#D9DFD9}
     <div class="hero">
       <div>
         <h1 class="display">Hablemos de <span class="g">tus sueños.</span></h1>
-        <p class="sub">Soy Rodrigo Bolaños Navarro. Dirijo Grupo Navarro y encabezo el despacho Bolaños Navarro &amp; Asociados en Morelia. Tu patrimonio, por los dos frentes: el inmobiliario y el legal.</p>
+        <p class="sub">Soy Rodrigo Bolaños Navarro. Formo parte del equipo de Grupo Navarro y encabezo el despacho Bolaños Navarro &amp; Asociados en Morelia. Tu patrimonio, por los dos frentes: el inmobiliario y el legal.</p>
         <div class="hero-ctas">
           <a class="btn" href="#inmobiliaria" data-nav>Bienes Raíces</a>
           <a class="btn line" href="#despacho" data-nav>Servicios Legales</a>
