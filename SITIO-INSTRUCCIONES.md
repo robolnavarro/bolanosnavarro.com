@@ -16,6 +16,13 @@ HTML estáticos. Copia de prueba: https://bolanosnavarro.rodrigo-825.workers.dev
 ## Archivos
 - `index.html` — sitio maestro. Tres vistas por hash: #inicio, #inmobiliaria, #despacho.
   Deep links de campaña (ManyChat): #checklist, #torre, #foraneo, #credito, #inversion.
+  #inmobiliaria muestra un botón "Abrir" por entregable (lista `.hub`); cada deep
+  link abre ese entregable solo, con "← Todas las herramientas" para volver.
+- Enlaces cortos para CTAs: `checklist.html`, `torre.html`, `foraneo.html`,
+  `credito.html`, `inversion.html` → se sirven como bolanosnavarro.com/torre, etc.
+  Solo redirigen a /#torre (conservando ?utm) y traen título/descripción propios
+  para la vista previa de WhatsApp. Si se agrega un entregable: tarjeta en `.hub`,
+  entrada en `TOOLMAP` y su archivo corto.
 - `testimonio.html` — formulario de testimonios (Grupo Navarro + despacho),
   envía por WhatsApp al 443 128 1399.
 

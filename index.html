@@ -117,6 +117,21 @@ html,body{overflow-x:clip}
 .tool.open .tool-body{display:block}
 .tool.open .tool-toggle{background:var(--ink);color:var(--bg)}
 @media (max-width:640px){.tool-head{grid-template-columns:auto 1fr}.tool-head .btn{grid-column:2;justify-self:start}}
+/* Entregables: un botón por herramienta en el índice; cada una abre sola en su propio enlace */
+.hub{list-style:none;margin-top:2.4rem;display:grid;gap:1rem}
+.hub-card{display:grid;grid-template-columns:auto 1fr auto;gap:1.3rem;align-items:center;padding:1.4rem clamp(1.1rem,3vw,1.8rem);border:1px solid var(--line);border-radius:8px;background:var(--surface);text-decoration:none;color:inherit;transition:border-color .15s}
+.hub-card:hover{border-color:var(--green)}
+.hub-card h3{font-size:clamp(1.15rem,2.6vw,1.5rem);font-weight:800;text-transform:uppercase}
+.hub-card p{color:var(--muted);font-size:.96rem;max-width:52ch;margin-top:.25rem}
+@media (max-width:640px){.hub-card{grid-template-columns:auto 1fr}.hub-card .btn{grid-column:2;justify-self:start}}
+.back{display:inline-block;margin-top:clamp(1.6rem,4vh,2.4rem);color:var(--muted);text-decoration:none;font-weight:700;font-size:.9rem;text-transform:uppercase;letter-spacing:.04em}
+.back:hover{color:var(--ink)}
+#inmobiliaria:not(.single) .tools,#inmobiliaria:not(.single) .back{display:none}
+#inmobiliaria.single .head,#inmobiliaria.single .hub{display:none}
+#inmobiliaria.single .tools{margin-top:1rem}
+#inmobiliaria.single .tool:not(.current){display:none}
+#inmobiliaria.single .tool .tool-body{display:block}
+#inmobiliaria.single .tool-toggle,#inmobiliaria.single .mode{display:none}
 
 .fgrid{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem 1.6rem}
 @media (max-width:680px){.fgrid{grid-template-columns:1fr}}
@@ -281,6 +296,16 @@ footer a{color:#D9DFD9}
       <h1 class="display">Herramientas de mis campañas</h1>
       <p class="sub">Nada de descargas ni plantillas: llena tus datos aquí y ve tu resultado al instante. Cuando lo tengas, mándamelo por WhatsApp y lo revisamos juntos, sin costo.</p>
     </div>
+
+    <ul class="hub" id="hub">
+      <li><a class="hub-card" href="#checklist" data-nav><span class="dnum">01</span><div><h3>Checklist de los 3 papeles</h3><p>Los 3 documentos que revisas ANTES de dar un solo peso de anticipo. Marca cuáles ya viste y obtén tu diagnóstico.</p></div><span class="btn">Abrir</span></a></li>
+      <li><a class="hub-card" href="#torre" data-nav><span class="dnum">02</span><div><h3>Analiza tu inversión — Torre Paseo del Parque</h3><p>Números reales del desarrollo (renta comprobada y plusvalía histórica). Mueve el precio y ve tu rendimiento al instante.</p></div><span class="btn">Abrir</span></a></li>
+      <li><a class="hub-card" href="#foraneo" data-nav><span class="dnum">03</span><div><h3>Tu plan de compra a distancia</h3><p>Vives fuera de Morelia y quieres invertir aquí. Dime tu situación y arma tu ruta paso a paso, sin viajes innecesarios.</p></div><span class="btn">Abrir</span></a></li>
+      <li><a class="hub-card" href="#credito" data-nav><span class="dnum">04</span><div><h3>¿Mi crédito ya alcanza? — Casa Babel, San Pedro</h3><p>Llena tu ingreso, tu ahorro y tu crédito y ve al instante si te alcanza para lo inicial y para la mensualidad.</p></div><span class="btn">Abrir</span></a></li>
+      <li><a class="hub-card" href="#inversion" data-nav><span class="dnum">05</span><div><h3>Mi primera inversión — Casa Babel, San Pedro</h3><p>Compra para rentar: cuánto pones de tu bolsa cada mes, cuánto paga el inquilino y qué rendimiento te deja.</p></div><span class="btn">Abrir</span></a></li>
+    </ul>
+
+    <a class="back" href="#inmobiliaria" data-nav>← Todas las herramientas</a>
 
     <ul class="tools">
 
@@ -590,18 +615,12 @@ footer a{color:#D9DFD9}
   /* ---- Navegación de vistas y deep links por campaña ---- */
   var views=['inicio','inmobiliaria','despacho'];
   var TOOLMAP={
-    'checklist':{t:'t1'},'3papeles':{t:'t1'},
-    'torre':{t:'t2'},'paseodelparque':{t:'t2'},
-    'foraneo':{t:'t3'},'adistancia':{t:'t3'},
-    'corrida':{t:'t4',m:'L'},'credito':{t:'t4',m:'L'},
-    'inversion':{t:'t4',m:'A'},'alcancia':{t:'t4',m:'A'}
+    'checklist':{t:'t1',n:'01'},'3papeles':{t:'t1',n:'01'},
+    'torre':{t:'t2',n:'02'},'paseodelparque':{t:'t2',n:'02'},
+    'foraneo':{t:'t3',n:'03'},'adistancia':{t:'t3',n:'03'},
+    'corrida':{t:'t4',m:'L',n:'04'},'credito':{t:'t4',m:'L',n:'04'},
+    'inversion':{t:'t4',m:'A',n:'05'},'alcancia':{t:'t4',m:'A',n:'05'}
   };
-  function openTool(tid){
-    var t=$(tid); if(!t) return;
-    t.classList.add('open');
-    var b=t.querySelector('.tool-toggle'); if(b) b.textContent='Cerrar';
-    setTimeout(function(){t.scrollIntoView({behavior:'smooth',block:'start'});},80);
-  }
   function show(id){
     id=(id||'').toLowerCase();
     var tool=TOOLMAP[id];
@@ -610,12 +629,17 @@ footer a{color:#D9DFD9}
     document.querySelectorAll('nav a[data-nav]').forEach(function(a){
       if(a.getAttribute('href')==='#'+vid){a.setAttribute('aria-current','page');}else{a.removeAttribute('aria-current');}
     });
+    var inmo=$('inmobiliaria');
+    inmo.classList.toggle('single',!!tool);
+    document.querySelectorAll('#inmobiliaria .tool').forEach(function(t){t.classList.toggle('current',!!tool&&t.id===tool.t);});
     if(tool){
       if(tool.m){setMode(tool.m==='L');}
-      openTool(tool.t);
-    }else{
-      window.scrollTo({top:0,behavior:'auto'});
+      var h=$('t4').querySelector('.tool-head h3');
+      if(tool.t==='t4'){h.textContent=(tool.m==='A'?'Mi primera inversión':'¿Mi crédito ya alcanza?')+' — Casa Babel, San Pedro';}
+      else{h.textContent='Mi corrida — Casa Babel, San Pedro';}
+      $(tool.t).querySelector('.tool-head .dnum').textContent=tool.n;
     }
+    window.scrollTo({top:0,behavior:'auto'});
   }
   document.querySelectorAll('a[data-nav]').forEach(function(a){
     a.addEventListener('click',function(e){e.preventDefault();var id=a.getAttribute('href').slice(1);history.pushState(null,'','#'+id);show(id);});
