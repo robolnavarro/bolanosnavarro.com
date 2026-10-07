@@ -18,11 +18,12 @@ Copia de prueba: https://bolanosnavarro.rodrigo-825.workers.dev
 
 ## Archivos
 - `index.html` — sitio maestro. Tres vistas por hash: #inicio, #inmobiliaria, #despacho.
-  Deep links de campaña (ManyChat): #checklist, #torre, #foraneo, #credito, #inversion.
+  Deep links de campaña (ManyChat): #checklist, #torre, #foraneo, #credito,
+  #inversion, #comparador (alias #contado y #banco).
   #inmobiliaria muestra un botón "Abrir" por entregable (lista `.hub`); cada deep
   link abre ese entregable solo, con "← Todas las herramientas" para volver.
 - Enlaces cortos para CTAs: `checklist.html`, `torre.html`, `foraneo.html`,
-  `credito.html`, `inversion.html` → se sirven como bolanosnavarro.com/torre, etc.
+  `credito.html`, `inversion.html`, `comparador.html` → se sirven como bolanosnavarro.com/torre, etc.
   Solo redirigen a /#torre (conservando ?utm) y traen título/descripción propios
   para la vista previa de WhatsApp. Si se agrega un entregable: tarjeta en `.hub`,
   entrada en `TOOLMAP` y su archivo corto.
@@ -44,6 +45,13 @@ Copia de prueba: https://bolanosnavarro.rodrigo-825.workers.dev
 - **Cifras de la banda**: buscar `1,000+` / `$500M+` en la sección .band.
 - **Precios y parámetros de las corridas San Pedro**: constantes
   `PRECIO=1278250, TASA=0.105/12, NPER=240, CAPPCT=0.325, SEG=1.12` en el <script>.
+- **Comparador contado vs crédito** (herramienta 06, `t5`): réplica de la hoja
+  de Drive `Entregables/Mi_Comparador_BANCO`. Valores por defecto: precio
+  3,000,000 · gastos 6% · enganche 20% · tasa 10.5% · plazo 20 · seguros 12% ·
+  rendimiento 9% · horizonte 10. Modelo: montos capitalizan mensualmente
+  (rend/12) y la mensualidad se invierte como anualidad vencida; la posición con
+  crédito resta el saldo insoluto al horizonte. Textos de perfiles en
+  `CC_PERFILES`. Si cambia la hoja, actualizar aquí también.
 - **Datos de Torre Paseo del Parque**: inputs por defecto `pdpPrecio` (3300000)
   y `pdpRenta` (15977), y las barras comparativas de $/m².
 - **Números de WhatsApp**: `WA_GN='524434101638'` (campañas inmobiliarias)

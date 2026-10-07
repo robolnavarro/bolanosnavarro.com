@@ -227,6 +227,9 @@ html,body{overflow-x:clip}
 section.block{padding-bottom:clamp(2.2rem,5vh,3.5rem)}
 section.block h2{font-size:clamp(1.7rem,4vw,2.5rem);font-weight:800;text-transform:uppercase;letter-spacing:-.01em}
 
+.casos{display:grid;gap:.9rem;margin-top:1rem}
+.caso h4{font-size:.82rem;font-weight:800;text-transform:uppercase;letter-spacing:.03em;color:var(--muted)}
+.caso p{font-size:.98rem;margin-top:.15rem}
 .legal{font-size:.82rem;color:var(--muted);margin-top:2rem;line-height:1.55}
 
 footer{background:#0A0F0B;color:#D9DFD9;margin-top:clamp(2rem,5vh,3rem)}
@@ -312,6 +315,7 @@ footer a{color:#D9DFD9}
       <li><a class="hub-card" href="#foraneo" data-nav><span class="dnum">03</span><div><h3>Tu plan de compra a distancia</h3><p>Vives fuera de Morelia y quieres invertir aquí. Dime tu situación y arma tu ruta paso a paso, sin viajes innecesarios.</p></div><span class="btn">Abrir</span></a></li>
       <li><a class="hub-card" href="#credito" data-nav><span class="dnum">04</span><div><h3>¿Mi crédito ya alcanza? — Casa Babel, San Pedro</h3><p>Llena tu ingreso, tu ahorro y tu crédito y ve al instante si te alcanza para lo inicial y para la mensualidad.</p></div><span class="btn">Abrir</span></a></li>
       <li><a class="hub-card" href="#inversion" data-nav><span class="dnum">05</span><div><h3>Mi primera inversión — Casa Babel, San Pedro</h3><p>Compra para rentar: cuánto pones de tu bolsa cada mes, cuánto paga el inquilino y qué rendimiento te deja.</p></div><span class="btn">Abrir</span></a></li>
+      <li><a class="hub-card" href="#comparador" data-nav><span class="dnum">06</span><div><h3>¿Contado o crédito? El comparador honesto</h3><p>Tienes el dinero y dudas si pagar de contado o pedir crédito. Pon tus números y mira cuál te deja mejor parado al final.</p></div><span class="btn">Abrir</span></a></li>
     </ul>
 
     <a class="back" href="#inmobiliaria" data-nav>← Todas las herramientas</a>
@@ -553,6 +557,120 @@ footer a{color:#D9DFD9}
           <p class="legal">Estas corridas son una orientación con supuestos típicos; no son una autorización de crédito ni una garantía de renta. La aprobación, tasa, monto y condiciones finales las determina cada institución (banco y/o INFONAVIT/FOVISSSTE) con tu expediente. Los datos de INFONAVIT salen de tu propio precalificador oficial en Mi Cuenta Infonavit. Precio de vivienda sujeto a cambio. Toda compra se acompaña con revisión legal por abogados. Grupo Navarro · Morelia, Michoacán.</p>
         </div>
       </li>
+      <!-- 05 CONTADO O CREDITO -->
+      <li class="tool" id="t5">
+        <div class="tool-head">
+          <span class="dnum">06</span>
+          <div>
+            <h3>¿Contado o crédito? El comparador honesto</h3>
+            <p>Tienes el dinero y dudas si pagarla de contado o pedir crédito. Pon tus números y mira cuál te deja mejor parado al final.</p>
+          </div>
+          <button class="btn tool-toggle" data-open="t5">Usarlo aquí</button>
+        </div>
+        <div class="tool-body">
+          <p class="subhead">1) Tu perfil</p>
+          <div class="field"><label for="ccPerfil">¿Cuál se parece más a ti?</label>
+            <select id="ccPerfil">
+              <option value="1">1 · Asalariado</option>
+              <option value="2">2 · Empresario o inversionista</option>
+              <option value="3">3 · Comerciante que no comprueba ingresos</option>
+              <option value="4">4 · Vendí una propiedad y traigo el dinero</option>
+            </select>
+          </div>
+          <div class="fgrid">
+            <div class="field"><label>¿Puedes comprobar ingresos ante un banco?</label>
+              <div class="seg" id="ccComp" role="group" aria-label="¿Compruebas ingresos?">
+                <button type="button" data-v="si" aria-pressed="true">Sí</button>
+                <button type="button" data-v="no" aria-pressed="false">No</button>
+              </div>
+            </div>
+            <div class="field"><label>¿Presentas declaración anual?</label>
+              <div class="seg" id="ccDecl" role="group" aria-label="¿Declaras?">
+                <button type="button" data-v="si" aria-pressed="true">Sí</button>
+                <button type="button" data-v="no" aria-pressed="false">No</button>
+              </div>
+            </div>
+            <div class="field"><label for="ccEdad">Tu edad hoy</label><input type="number" id="ccEdad" value="40" min="18" max="85" step="1"></div>
+          </div>
+
+          <p class="subhead">2) Tu dinero</p>
+          <div class="fgrid">
+            <div class="field"><label for="ccDisp">Dinero disponible hoy (ahorro, venta, liquidación)</label><input type="number" id="ccDisp" value="3500000" min="0" step="50000"></div>
+            <div class="field"><label for="ccIngC">Ingreso mensual COMPROBABLE (el que ve el banco)</label><input type="number" id="ccIngC" value="90000" min="0" step="1000"></div>
+            <div class="field"><label for="ccIngR">Ingreso mensual REAL (incluye lo que no comprueba)</label><input type="number" id="ccIngR" value="90000" min="0" step="1000"></div>
+            <div class="field"><label for="ccGas">Gastos mensuales fijos de tu casa</label><input type="number" id="ccGas" value="35000" min="0" step="1000"></div>
+            <div class="field"><label for="ccDeu">Pagos mensuales de otras deudas</label><input type="number" id="ccDeu" value="0" min="0" step="500"></div>
+          </div>
+
+          <p class="subhead">3) La propiedad y el crédito</p>
+          <div class="fgrid">
+            <div class="field"><label for="ccPrecio">Precio de la propiedad</label><input type="number" id="ccPrecio" value="3000000" min="0" step="50000"></div>
+            <div class="field"><label for="ccGastosPct">Gastos de escrituración e iniciales (% del precio)</label><input type="number" id="ccGastosPct" value="6" min="0" max="15" step="0.5"></div>
+            <div class="field"><label for="ccEngPct">Enganche que darías si vas con crédito (%)</label><input type="number" id="ccEngPct" value="20" min="5" max="90" step="1"></div>
+            <div class="field"><label for="ccTasa">Tasa anual del crédito hipotecario (%)</label><input type="number" id="ccTasa" value="10.5" min="1" max="25" step="0.1"></div>
+            <div class="field"><label for="ccPlazo">Plazo del crédito (años)</label><input type="number" id="ccPlazo" value="20" min="5" max="30" step="1"></div>
+            <div class="field"><label for="ccSeg">Seguros y comisiones (% sobre la mensualidad)</label><input type="number" id="ccSeg" value="12" min="0" max="40" step="1"></div>
+          </div>
+
+          <p class="subhead">4) El supuesto que decide todo</p>
+          <div class="fgrid">
+            <div class="field"><label for="ccRend">Rendimiento anual NETO que tú lograrías con ese dinero (%)</label><input type="number" id="ccRend" value="9" min="0" max="40" step="0.5"></div>
+            <div class="field"><label for="ccHoriz">Horizonte de comparación (años)</label><input type="number" id="ccHoriz" value="10" min="1" max="30" step="1"></div>
+          </div>
+          <p class="fnote" id="ccHorizNota"></p>
+          <p class="fnote">Sé honesto aquí: «neto» significa después de impuestos, comisiones y riesgo. Si tu dinero hoy está en el banco sin hacer nada, tu rendimiento real es cercano a cero — y entonces pagar de contado te conviene todavía más. Este es el número que decide la comparación, no la plusvalía.</p>
+
+          <p class="subhead">5) Si pagas de contado</p>
+          <div class="rows">
+            <div class="row"><span>Desembolso total (precio + gastos)</span><strong id="ccCoDes"></strong></div>
+            <div class="row total"><span>¿Te alcanza con tu dinero disponible?</span><strong id="ccCoAlc"></strong></div>
+            <div class="row"><span>Mensualidad que NO pagas (y que puedes invertir)</span><strong id="ccCoMen"></strong></div>
+            <div class="row"><span>Valor de tu dinero al horizonte</span><strong id="ccCoVal"></strong></div>
+          </div>
+
+          <p class="subhead">6) Si vas con crédito</p>
+          <div class="rows">
+            <div class="row"><span>Enganche</span><strong id="ccCrEng"></strong></div>
+            <div class="row"><span>Gastos de escrituración</span><strong id="ccCrGas"></strong></div>
+            <div class="row"><span>Monto del crédito</span><strong id="ccCrMonto"></strong></div>
+            <div class="row"><span>Mensualidad con seguros</span><strong id="ccCrMen"></strong></div>
+            <div class="row total"><span>¿Cabe en tu capacidad sana de pago? (32.5% del comprobable)</span><strong id="ccCrCabe"></strong></div>
+            <div class="row"><span>Dinero que te queda libre hoy</span><strong id="ccCrLibre"></strong></div>
+            <div class="row"><span>Valor de ese dinero al horizonte</span><strong id="ccCrVal"></strong></div>
+            <div class="row"><span>Saldo que aún le debes al banco al horizonte</span><strong id="ccCrSaldo"></strong></div>
+            <div class="row total"><span>Tu posición financiera al horizonte</span><strong id="ccCrPos"></strong></div>
+          </div>
+
+          <p class="subhead">7) El veredicto en números</p>
+          <div class="verdict" id="ccVerdict">
+            <div class="v-title" id="ccVTitle"></div>
+            <div class="vtags"><span class="vtag" id="ccTagAlc"></span><span class="vtag" id="ccTagMes"></span><span class="vtag" id="ccTagCol"></span></div>
+            <p id="ccVText"></p>
+            <a class="btn" id="ccWA" href="#" target="_blank" rel="noopener">Enviar mi comparación y revisarla sin costo</a>
+          </div>
+          <div class="rows" style="margin-top:1.4rem">
+            <div class="row"><span>Posición si pagas de CONTADO</span><strong id="ccResCo"></strong></div>
+            <div class="row"><span>Posición si vas con CRÉDITO</span><strong id="ccResCr"></strong></div>
+            <div class="row total"><span>Diferencia a favor del contado</span><strong id="ccResDif"></strong></div>
+            <div class="row"><span>Intereses y seguros que pagarías en total (informativo)</span><strong id="ccResInt"></strong></div>
+          </div>
+          <p class="fnote">La plusvalía NO aparece aquí a propósito: en los dos escenarios eres dueño de la MISMA casa, así que sube igual y no decide nada. Lo que de verdad se compara es el costo del crédito contra el rendimiento de tu dinero. El apalancamiento (comprar dos o tres propiedades con crédito en vez de una de contado) es otra pregunta distinta — pídenos esa corrida aparte.</p>
+
+          <p class="subhead">8) El número que voltea la decisión</p>
+          <p class="fnote" style="margin-top:0">Tus mismos datos, con distintos rendimientos de tu dinero:</p>
+          <div class="rows" id="ccSens"></div>
+          <p class="fnote">Léelo así: existe un punto de quiebre. Mientras tu dinero rinda MENOS que el costo real del crédito, el contado gana. Cuando lo supera con holgura, gana el crédito.</p>
+
+          <p class="subhead">9) Lo que los números no deciden</p>
+          <div class="rows" id="ccNota"></div>
+
+          <p class="subhead">10) Según quién eres</p>
+          <div class="casos" id="ccCasos"></div>
+          <p class="fnote">La regla que aplica a los cuatro: nadie debe quedarse sin liquidez por comprar. Y ninguna de estas decisiones vale nada si los papeles de la propiedad están mal — por eso cada operación va con revisión legal antes de firmar.</p>
+
+          <p class="legal">Esta herramienta es una orientación construida con los supuestos que tú escribes; no es una autorización de crédito, ni asesoría fiscal, ni una recomendación de inversión. La aprobación, tasa y condiciones finales las determina cada institución financiera con tu expediente. El tratamiento fiscal de los intereses debe confirmarse con tu contador. Los rendimientos de inversión no están garantizados. Precios sujetos a cambio. Toda operación se acompaña con revisión legal por abogados. Grupo Navarro · Morelia, Michoacán.</p>
+        </div>
+      </li>
     </ul>
 
     <div class="banner">
@@ -628,7 +746,8 @@ footer a{color:#D9DFD9}
     'torre':{t:'t2',n:'02'},'paseodelparque':{t:'t2',n:'02'},
     'foraneo':{t:'t3',n:'03'},'adistancia':{t:'t3',n:'03'},
     'corrida':{t:'t4',m:'L',n:'04'},'credito':{t:'t4',m:'L',n:'04'},
-    'inversion':{t:'t4',m:'A',n:'05'},'alcancia':{t:'t4',m:'A',n:'05'}
+    'inversion':{t:'t4',m:'A',n:'05'},'alcancia':{t:'t4',m:'A',n:'05'},
+    'comparador':{t:'t5',n:'06'},'contado':{t:'t5',n:'06'},'banco':{t:'t5',n:'06'}
   };
   function show(id){
     id=(id||'').toLowerCase();
@@ -849,6 +968,149 @@ footer a{color:#D9DFD9}
   }
   ['aAho','aIng','aDeu','aRenta','aVac','aGas'].forEach(function(id){$(id).addEventListener('input',alcancia);});
   alcancia();
+
+  /* ---- 06 ¿Contado o crédito? (modelo de la hoja Mi_Comparador_BANCO) ---- */
+  var CC_PERFILES=[
+    {n:'El asalariado',
+     s:'Comprueba ingresos con nómina, tiene subcuenta de vivienda y acceso a las mejores tasas del mercado, pero poco capital junto.',
+     c:'CRÉDITO, casi siempre. No porque sea barato, sino porque de contado no hay opción. Su palanca real es la tasa: tres cotizaciones pueden valer cientos de miles en el plazo.',
+     t:'Estirarse al máximo que le autoriza el banco. El banco aprueba por ingreso; la vida se paga con lo que sobra. Tope sano: 32.5% del ingreso.'},
+    {n:'El empresario o inversionista',
+     s:'Tiene el dinero completo, pero su capital trabajando en el negocio le rinde más de lo que cuesta el crédito.',
+     c:'CRÉDITO, por decisión y no por necesidad: paga un costo efectivo por un dinero que él hace rendir más. Y si declara, puede deducir intereses.',
+     t:'Suponer un rendimiento que no es real ni sostenido. Si el «rinde más» es un año bueno y no un promedio, la cuenta se voltea.'},
+    {n:'El comerciante sin comprobar ingresos',
+     s:'Gana bien y en efectivo, pero ante el banco no existe: sin declaraciones, sin estados de cuenta a nombre del negocio, sin historial.',
+     c:'CONTADO, porque hoy es su única vía. Pero la jugada inteligente es empezar a formalizarse en paralelo: en 6 a 12 meses deja de ser invisible.',
+     t:'Pagar de contado y quedarse sin capital de trabajo. Su negocio es su activo principal: descapitalizarlo para comprar ladrillos puede costarle más que cualquier interés.'},
+    {n:'El que vendió una propiedad',
+     s:'Trae liquidez de una sola vez, muchas veces en una etapa de la vida donde el ingreso mensual ya no crece.',
+     c:'CONTADO, normalmente. Sin ingreso comprobable creciente, una mensualidad a 20 años es un riesgo; y el banco limita la edad al vencimiento.',
+     t:'Dejar el ahorro en cero. Nunca comprar con el 100% del dinero: el colchón de 6 a 12 meses de gastos no es opcional a esa edad.'}
+  ];
+  var ccComp='si', ccDecl='si';
+  function ccSeg(id,set){
+    $(id).querySelectorAll('button').forEach(function(b){
+      b.addEventListener('click',function(){
+        $(id).querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed','false');});
+        b.setAttribute('aria-pressed','true');set(b.dataset.v);comparador();
+      });
+    });
+  }
+  ccSeg('ccComp',function(v){ccComp=v;});
+  ccSeg('ccDecl',function(v){ccDecl=v;});
+  // Valor futuro: capitalización mensual para montos y anualidad vencida para la mensualidad.
+  function ccFV(monto,rendAnual,anios){return monto*Math.pow(1+rendAnual/12,12*anios);}
+  function ccFVmen(pago,rendAnual,anios){
+    var i=rendAnual/12, k=12*anios;
+    return i===0?pago*k:pago*((Math.pow(1+i,k)-1)/i);
+  }
+  function ccSaldo(pagoBase,tasaAnual,plazoAnios,anios){
+    var i=tasaAnual/12, faltan=Math.max(0,12*(plazoAnios-anios));
+    if(!faltan) return 0;
+    return i===0?pagoBase*faltan:pagoBase*(1-Math.pow(1+i,-faltan))/i;
+  }
+  function ccEscenario(rend,d){
+    var contado=ccFV(d.sobra,rend,d.horiz)+ccFVmen(d.mensualidad,rend,d.horiz);
+    var credito=ccFV(d.libre,rend,d.horiz)-d.saldo;
+    return {contado:contado,credito:credito,dif:contado-credito};
+  }
+  function comparador(){
+    var precio=n('ccPrecio'), gastosPct=n('ccGastosPct')/100, engPct=n('ccEngPct')/100;
+    var tasa=n('ccTasa')/100, plazo=Math.max(1,n('ccPlazo')), seg=1+n('ccSeg')/100;
+    var horizPide=Math.max(1,n('ccHoriz'));
+    var rend=n('ccRend')/100, horiz=Math.min(horizPide,plazo);
+    $('ccHorizNota').textContent=horizPide>plazo?'El horizonte se comparó a '+plazo+' años, que es cuando terminas de pagar el crédito.':'';
+    var disp=n('ccDisp'), ingC=n('ccIngC'), gastosFijos=n('ccGas'), deudas=n('ccDeu'), edad=n('ccEdad');
+
+    var gastos=precio*gastosPct, desembolso=precio+gastos;
+    var sobra=disp-desembolso;
+    var enganche=precio*engPct, monto=precio-enganche;
+    var pagoBase=pmt(tasa/12,12*plazo,monto), mensualidad=pagoBase*seg;
+    var inicialCred=enganche+gastos, libre=disp-inicialCred;
+    var saldo=ccSaldo(pagoBase,tasa,plazo,horiz);
+    var capacidad=ccEscenario(rend,{sobra:Math.max(0,sobra),mensualidad:mensualidad,libre:Math.max(0,libre),saldo:saldo,horiz:horiz});
+    var cabe=ingC*0.325-deudas-mensualidad;
+    var intereses=mensualidad*12*plazo-monto;
+
+    money($('ccCoDes'),desembolso); money($('ccCoAlc'),sobra,true);
+    money($('ccCoMen'),mensualidad); money($('ccCoVal'),capacidad.contado);
+    money($('ccCrEng'),enganche); money($('ccCrGas'),gastos); money($('ccCrMonto'),monto);
+    money($('ccCrMen'),mensualidad); money($('ccCrCabe'),cabe,true);
+    money($('ccCrLibre'),libre,true); money($('ccCrVal'),ccFV(Math.max(0,libre),rend,horiz));
+    money($('ccCrSaldo'),saldo); money($('ccCrPos'),capacidad.credito);
+    money($('ccResCo'),capacidad.contado); money($('ccResCr'),capacidad.credito);
+    money($('ccResDif'),capacidad.dif,true); money($('ccResInt'),intereses);
+
+    // Veredicto
+    var alcanza=sobra>=0, ganaContado=capacidad.dif>=0;
+    var colchon=gastosFijos*6, quedaContado=Math.max(0,sobra), quedaCredito=Math.max(0,libre);
+    var v=$('ccVerdict');
+    v.classList.remove('ok','warn','bad');
+    var titulo, texto;
+    if(!alcanza){
+      v.classList.add('warn');
+      titulo='Hoy solo puedes ir con CRÉDITO';
+      texto='Para pagar de contado te faltan '+fmt.format(Math.abs(sobra))+'. Con crédito, tu desembolso inicial sería de '+fmt.format(inicialCred)+' y tu mensualidad de '+fmt.format(mensualidad)+'. '+(cabe>=0?'Esa mensualidad cabe en tu capacidad sana de pago.':'Ojo: esa mensualidad se pasa '+fmt.format(Math.abs(cabe))+' de tu capacidad sana de pago; conviene bajar el precio o subir el enganche.');
+    }else if(ganaContado){
+      v.classList.add('ok');
+      titulo='En números gana el CONTADO';
+      texto='Con un rendimiento de '+(rend*100).toFixed(1)+'% anual, pagar de contado te deja '+fmt.format(Math.abs(capacidad.dif))+' mejor parado a '+horiz+' años. Tu dinero no le gana al costo del crédito: la tasa más seguros te cuesta más de lo que tu dinero produce.';
+    }else{
+      v.classList.add('ok');
+      titulo='En números gana el CRÉDITO';
+      texto='Con un rendimiento de '+(rend*100).toFixed(1)+'% anual, ir con crédito te deja '+fmt.format(Math.abs(capacidad.dif))+' mejor parado a '+horiz+' años. Tu dinero rinde más de lo que cuesta el crédito — siempre que ese rendimiento sea real y sostenido, no un año bueno.';
+    }
+    $('ccVTitle').textContent=titulo; $('ccVText').textContent=texto;
+    tag($('ccTagAlc'),alcanza?'ok':'bad','Te alcanza de contado','','No te alcanza de contado');
+    tag($('ccTagMes'),cabe>=0?'ok':'bad','La mensualidad cabe','','La mensualidad no cabe');
+    var queda=ganaContado&&alcanza?quedaContado:quedaCredito;
+    tag($('ccTagCol'),queda>=colchon?'ok':'warn','Conservas colchón de 6 meses','Te quedas sin colchón de 6 meses','');
+
+    $('ccWA').href=wa(WA_GN,'Corrí el comparador «¿contado o crédito?» en bolanosnavarro.com. Propiedad de '+fmt.format(precio)+' · tengo '+fmt.format(disp)+' disponibles · tasa '+(tasa*100).toFixed(2)+'% a '+plazo+' años · supongo un rendimiento de '+(rend*100).toFixed(1)+'% a '+horiz+' años. En números me conviene '+(alcanza?(ganaContado?'CONTADO':'CRÉDITO'):'CRÉDITO')+' por '+fmt.format(Math.abs(capacidad.dif))+'. Quiero revisarlo con ustedes.');
+
+    // 8) Sensibilidad
+    var sens=$('ccSens'); sens.innerHTML='';
+    [0.06,0.09,0.12,0.15].forEach(function(r){
+      var e=ccEscenario(r,{sobra:Math.max(0,sobra),mensualidad:mensualidad,libre:Math.max(0,libre),saldo:saldo,horiz:horiz});
+      var row=document.createElement('div');row.className='row';
+      var s=document.createElement('span');s.textContent='Si tu dinero rinde '+(r*100).toFixed(0)+'% al año';
+      var st=document.createElement('strong');
+      st.textContent=(e.dif>=0?'Gana contado por ':'Gana crédito por ')+fmt.format(Math.abs(e.dif));
+      st.className=e.dif>=0?'pos':'neg';
+      row.appendChild(s);row.appendChild(st);sens.appendChild(row);
+    });
+
+    // 9) Lo que los números no deciden
+    var notas=[
+      ['Comprobación de ingresos', ccComp==='si'?'Puedes competir por tasa: pide 3 cotizaciones antes de firmar.':'Hoy el banco no te ve. Empieza a formalizarte: en 6 a 12 meses puedes calificar.'],
+      ['Liquidez de emergencia', queda>=colchon?'Conservas colchón de al menos 6 meses de gastos.':'Te quedarías con menos de 6 meses de gastos ('+fmt.format(colchon)+'). No compres con todo el dinero.'],
+      ['Deducción de intereses', ccDecl==='si'?'Podrías deducir los intereses reales de un crédito hipotecario para casa habitación. Confírmalo con tu contador: puede inclinar la balanza.':'Sin declaración anual no aprovechas la deducción de intereses.'],
+      ['Tu edad contra el plazo', (edad+plazo)<=75?'El plazo cabe dentro de la edad que suelen pedir los bancos.':'A tu edad más '+plazo+' años llegas a '+(edad+plazo)+': la mayoría de los bancos pide terminar antes de los 75. Considera un plazo más corto.'],
+      ['Tu dinero, ¿tiene un mejor trabajo?', ganaContado?'Tu dinero NO le gana al costo del crédito. Pagar de contado te deja mejor parado.':'Tu dinero le gana al costo del crédito, si ese rendimiento es sostenido.']
+    ];
+    var nl=$('ccNota'); nl.innerHTML='';
+    notas.forEach(function(p){
+      var row=document.createElement('div');row.className='row';
+      var a=document.createElement('span');a.textContent=p[0];
+      var b=document.createElement('strong');b.textContent=p[1];b.style.fontWeight='600';b.style.textAlign='right';b.style.maxWidth='60%';
+      row.appendChild(a);row.appendChild(b);nl.appendChild(row);
+    });
+
+    // 10) Tu caso
+    var caso=CC_PERFILES[Math.max(0,Math.min(3,parseInt($('ccPerfil').value,10)-1))];
+    var cs=$('ccCasos'); cs.innerHTML='';
+    [['Tu perfil',caso.n],['Tu situación típica',caso.s],['Lo que suele convenirte',caso.c],['La trampa de este perfil',caso.t]].forEach(function(p){
+      var d=document.createElement('div');d.className='caso';
+      var h=document.createElement('h4');h.textContent=p[0];
+      var t=document.createElement('p');t.textContent=p[1];
+      d.appendChild(h);d.appendChild(t);cs.appendChild(d);
+    });
+  }
+  ['ccPerfil','ccEdad','ccDisp','ccIngC','ccIngR','ccGas','ccDeu','ccPrecio','ccGastosPct','ccEngPct','ccTasa','ccPlazo','ccSeg','ccRend','ccHoriz'].forEach(function(id){
+    $(id).addEventListener('input',comparador); $(id).addEventListener('change',comparador);
+  });
+  comparador();
 })();
 </script>
 </body>
