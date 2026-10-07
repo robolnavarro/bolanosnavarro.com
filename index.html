@@ -227,6 +227,8 @@ html,body{overflow-x:clip}
 section.block{padding-bottom:clamp(2.2rem,5vh,3.5rem)}
 section.block h2{font-size:clamp(1.7rem,4vw,2.5rem);font-weight:800;text-transform:uppercase;letter-spacing:-.01em}
 
+.arr-prog{font-weight:800;text-transform:uppercase;letter-spacing:.03em;font-size:.9rem;color:var(--green);margin:1.6rem 0 .4rem}
+.arr-faltan{margin-top:.8rem;font-size:.92rem;color:var(--muted)}
 .casos{display:grid;gap:.9rem;margin-top:1rem}
 .caso h4{font-size:.82rem;font-weight:800;text-transform:uppercase;letter-spacing:.03em;color:var(--muted)}
 .caso p{font-size:.98rem;margin-top:.15rem}
@@ -316,6 +318,7 @@ footer a{color:#D9DFD9}
       <li><a class="hub-card" href="#credito" data-nav><span class="dnum">04</span><div><h3>¿Mi crédito ya alcanza? — Casa Babel, San Pedro</h3><p>Llena tu ingreso, tu ahorro y tu crédito y ve al instante si te alcanza para lo inicial y para la mensualidad.</p></div><span class="btn">Abrir</span></a></li>
       <li><a class="hub-card" href="#inversion" data-nav><span class="dnum">05</span><div><h3>Mi primera inversión — Casa Babel, San Pedro</h3><p>Compra para rentar: cuánto pones de tu bolsa cada mes, cuánto paga el inquilino y qué rendimiento te deja.</p></div><span class="btn">Abrir</span></a></li>
       <li><a class="hub-card" href="#comparador" data-nav><span class="dnum">06</span><div><h3>¿Contado o crédito? El comparador honesto</h3><p>Tienes el dinero y dudas si pagar de contado o pedir crédito. Pon tus números y mira cuál te deja mejor parado al final.</p></div><span class="btn">Abrir</span></a></li>
+      <li><a class="hub-card" href="#arrendamiento" data-nav><span class="dnum">07</span><div><h3>Antes de entregar las llaves — contrato de arrendamiento</h3><p>Los 18 puntos que revisamos en un contrato de renta. Marca con tu contrato enfrente y mira qué te falta.</p></div><span class="btn">Abrir</span></a></li>
     </ul>
 
     <a class="back" href="#inmobiliaria" data-nav>← Todas las herramientas</a>
@@ -671,6 +674,37 @@ footer a{color:#D9DFD9}
           <p class="legal">Esta herramienta es una orientación construida con los supuestos que tú escribes; no es una autorización de crédito, ni asesoría fiscal, ni una recomendación de inversión. La aprobación, tasa y condiciones finales las determina cada institución financiera con tu expediente. El tratamiento fiscal de los intereses debe confirmarse con tu contador. Los rendimientos de inversión no están garantizados. Precios sujetos a cambio. Toda operación se acompaña con revisión legal por abogados. Grupo Navarro · Morelia, Michoacán.</p>
         </div>
       </li>
+      <!-- 07 CHECKLIST ARRENDAMIENTO -->
+      <li class="tool" id="t6">
+        <div class="tool-head">
+          <span class="dnum">07</span>
+          <div>
+            <h3>Antes de entregar las llaves — contrato de arrendamiento</h3>
+            <p>Los 18 puntos que revisamos en un contrato de renta. Ve marcando con tu contrato enfrente: lo que quede sin palomear es por donde se te mete el problema.</p>
+          </div>
+          <button class="btn tool-toggle" data-open="t6">Usarlo aquí</button>
+        </div>
+        <div class="tool-body">
+          <p class="fnote" style="margin-top:0">Un contrato de arrendamiento no se hace pensando en que el inquilino va a cumplir. Se hace pensando en lo contrario: qué pasa el día que deja de pagar, el día que se descompone algo caro, el día que se quiere salir antes.</p>
+          <p class="fnote"><strong>Antes de empezar, lo más importante:</strong> que la propiedad sea tuya NO significa que puedas sacar al inquilino por tu cuenta el día que deje de pagarte. Si se niega a entregar el inmueble, hay que actuar conforme al contrato y al procedimiento legal que corresponda. Por eso el contrato no es un trámite: es la herramienta con la que vas a defender tu propiedad si las cosas salen mal.</p>
+          <div class="arr-prog"><span id="arrProg">0 de 18 puntos cubiertos</span></div>
+          <div id="arrList"></div>
+          <div class="verdict" id="arrVerdict" hidden>
+            <div class="v-title" id="arrTitle"></div>
+            <div class="vtags"><span class="vtag" id="arrTagNum"></span></div>
+            <p id="arrText"></p>
+            <p id="arrFaltan" class="arr-faltan"></p>
+            <a class="btn" id="arrWA" href="#" target="_blank" rel="noopener">Enviar mi resultado y que revisen mi contrato</a>
+          </div>
+          <p class="subhead">Las tres cosas que más caro cuestan</p>
+          <div class="casos">
+            <div class="caso"><h4>No tener inventario con fotos</h4><p>Es gratis, toma veinte minutos y es la única prueba de cómo se entregó el inmueble. Quien no lo hace, pierde el depósito o paga daños que no causó.</p></div>
+            <div class="caso"><h4>No tener garantía que haya firmado</h4><p>Un fiador que no firmó el contrato no responde por nada. Es el error que convierte una falta de pago en una pérdida total.</p></div>
+            <div class="caso"><h4>Creer que el contrato es un trámite</h4><p>Se firma en diez minutos y se vive dos o tres años. El momento más caro para descubrir que estaba mal hecho es cuando ya dejaron de pagarte.</p></div>
+          </div>
+          <p class="legal">Esta lista es una guía práctica de revisión con fines informativos y de orientación general. No constituye asesoría jurídica sobre un caso concreto ni sustituye la revisión profesional de un contrato en particular, y su contenido debe contrastarse con la legislación vigente aplicable en el Estado de Michoacán de Ocampo y con las circunstancias específicas de cada operación. Grupo Navarro · Bolaños Navarro &amp; Asociados · Morelia, Michoacán.</p>
+        </div>
+      </li>
     </ul>
 
     <div class="banner">
@@ -747,7 +781,8 @@ footer a{color:#D9DFD9}
     'foraneo':{t:'t3',n:'03'},'adistancia':{t:'t3',n:'03'},
     'corrida':{t:'t4',m:'L',n:'04'},'credito':{t:'t4',m:'L',n:'04'},
     'inversion':{t:'t4',m:'A',n:'05'},'alcancia':{t:'t4',m:'A',n:'05'},
-    'comparador':{t:'t5',n:'06'},'contado':{t:'t5',n:'06'},'banco':{t:'t5',n:'06'}
+    'comparador':{t:'t5',n:'06'},'contado':{t:'t5',n:'06'},'banco':{t:'t5',n:'06'},
+    'arrendamiento':{t:'t6',n:'07'},'contrato':{t:'t6',n:'07'},'renta':{t:'t6',n:'07'}
   };
   function show(id){
     id=(id||'').toLowerCase();
@@ -1111,6 +1146,123 @@ footer a{color:#D9DFD9}
     $(id).addEventListener('input',comparador); $(id).addEventListener('change',comparador);
   });
   comparador();
+
+  /* ---- 07 Checklist contrato de arrendamiento (18 puntos del entregable de Drive) ---- */
+  var ARR_BLOQUES=[
+    {b:'Bloque 1 · Quién, qué y en qué estado', items:[
+      {t:'Quién firma, de verdad',
+       d:'Nombre completo de las dos partes, con identificación oficial vigente anexa al contrato. Si quien renta es una empresa, el nombre de la sociedad y de quien la representa, con el documento que acredita que puede firmar por ella.',
+       a:'Un contrato firmado por «el esposo» cuando la propiedad está a nombre de los dos, o por alguien que dice representar a una empresa sin documento que lo respalde.'},
+      {t:'Que quien renta sea quien puede rentar',
+       d:'Que el arrendador sea el propietario o tenga facultades para arrendar. Si hay copropietarios, que todos consientan. Si quien firma es un apoderado, el poder correspondiente.',
+       a:'«Es de mi mamá pero yo lo manejo». Si el día del problema el dueño real desconoce el contrato, el inquilino queda indefenso y el arrendador también.'},
+      {t:'Qué se renta, con precisión',
+       d:'Dirección exacta, con número interior, y descripción de lo que incluye: cochera, bodega, azotea, jardín, cajón de estacionamiento numerado.',
+       a:'«La casa ubicada en…» y punto. Después nadie sabe si la cochera estaba incluida, y esa discusión se vuelve un pleito mensual.'},
+      {t:'En qué estado se entrega (el anexo que nadie hace)',
+       d:'Un inventario anexo y firmado por ambas partes: cuartos, acabados, muebles si los hay, aparatos, llaves entregadas, y FOTOGRAFÍAS fechadas. Además, lecturas de los medidores de luz, agua y gas el día de la entrega.',
+       a:'No hay inventario. Al final del contrato nadie puede probar si la mancha, el vidrio roto o el boiler descompuesto ya venían así. Sin inventario, el depósito siempre se pelea.'}
+    ]},
+    {b:'Bloque 2 · El dinero', items:[
+      {t:'Cuánto, cuándo y cómo se paga',
+       d:'El monto exacto con letra y número, el día límite de cada mes, y el medio de pago: transferencia a una cuenta identificada, de preferencia a nombre del arrendador. Y quién expide comprobante.',
+       a:'Pago en efectivo sin recibo. El día del conflicto, ninguna de las dos partes puede probar nada — y el que más pierde suele ser quien sí pagó.'},
+      {t:'Qué pasa si se paga tarde',
+       d:'Un día de corte claro y la consecuencia del retraso, redactada en términos razonables y conforme a la ley aplicable.',
+       a:'Penalizaciones desproporcionadas: una cláusula abusiva no solo es injusta, puede terminar siendo inaplicable y dejarte sin la protección que creías tener.'},
+      {t:'El depósito en garantía',
+       d:'Cuánto es, qué garantiza, en qué casos se aplica y —lo más olvidado— en cuántos días se devuelve al terminar y bajo qué condiciones.',
+       a:'«El depósito se aplica al último mes de renta». Si eso no quedó por escrito, es fuente garantizada de pleito al final.'},
+      {t:'Cómo y cuándo se actualiza la renta',
+       d:'Si el contrato se va a renovar, cómo se ajusta la renta: la referencia que se usará, cuándo se aplica y con cuánta anticipación se avisa, dentro de lo que permite la ley.',
+       a:'No decir nada. En un arrendamiento de varios años, la renta congelada mientras suben predial, seguro y mantenimiento convierte una buena inversión en una mala.'},
+      {t:'Quién paga cada servicio',
+       d:'Lista puntual: luz, agua, gas, internet, cuota de mantenimiento del condominio, predial. Quién lo paga y quién debe comprobar que está al corriente.',
+       a:'Dar por hecho que «eso es obvio». Las cuotas de mantenimiento atrasadas de un inquilino terminan persiguiendo al propietario.'}
+    ]},
+    {b:'Bloque 3 · Cuando las cosas salen mal', items:[
+      {t:'Qué cuenta como incumplimiento',
+       d:'Enumerado con claridad: falta de pago, uso distinto al pactado, subarrendar sin permiso, daños, actividades ilícitas. Y qué consecuencia tiene cada uno.',
+       a:'El contrato habla de «incumplir el contrato» en general. Mientras más vago, más difícil sostenerlo cuando lo necesitas.'},
+      {t:'Las causas de terminación y rescisión',
+       d:'Cuándo termina el contrato de forma natural, en qué casos puede darse por terminado antes, y qué procedimiento debe seguirse — conforme a la legislación aplicable.',
+       a:'Cláusulas que prometen desalojos automáticos. Ningún contrato te autoriza a sacar a alguien por tu cuenta; lo que hace un buen contrato es darte una base sólida para actuar por la vía que corresponde.'},
+      {t:'La garantía: quién responde si el inquilino no responde',
+       d:'Un fiador o un obligado solidario, plenamente identificado, que firma el contrato. Si la garantía es una propiedad, sus datos y el documento que acredita que es de quien dice.',
+       a:'«Me dio el teléfono de su tío». Una garantía que no firmó el contrato no es una garantía: es un contacto.'},
+      {t:'Domicilios para avisos y notificaciones',
+       d:'Un domicilio de cada parte para recibir avisos, y un correo electrónico o medio digital aceptado por ambos. Con la obligación de avisar si cambian.',
+       a:'No señalar domicilio. El día que necesitas notificar algo formalmente y no sabes a dónde, pierdes semanas — y a veces el derecho.'},
+      {t:'Jurisdicción y legislación aplicable',
+       d:'Que el contrato señale expresamente que se rige por la legislación del Estado de Michoacán y ante qué tribunales se resolvería una controversia.',
+       a:'Contratos bajados de internet que someten todo a tribunales de otro estado o traen figuras que aquí ni siquiera existen.'}
+    ]},
+    {b:'Bloque 4 · Uso, cuidado y salida', items:[
+      {t:'Para qué se puede usar el inmueble',
+       d:'El destino pactado: casa habitación, oficina, local comercial con giro específico. Y la prohibición expresa de cambiarlo sin consentimiento por escrito.',
+       a:'Rentar «para vivir» y terminar con un taller, una bodega o un negocio con público adentro — con los riesgos y permisos que eso implica para el propietario.'},
+      {t:'Quién repara qué',
+       d:'La distinción clara entre las reparaciones menores y de uso diario, que normalmente tocan al inquilino, y las reparaciones mayores o estructurales, que normalmente tocan al propietario. Y qué pasa cuando el daño fue por mal uso.',
+       a:'No separarlo. Cambiar un foco no cuesta lo mismo que reemplazar un boiler o reparar una fuga en la losa, y es la discusión número uno entre arrendador e inquilino.'},
+      {t:'Mejoras, modificaciones y subarriendo',
+       d:'Que no se pueden hacer modificaciones sin autorización por escrito; qué pasa con las mejoras al terminar el contrato; y la prohibición de subarrendar o ceder sin consentimiento expreso.',
+       a:'Permitir obras «de palabra». Al final nadie sabe si se pagan, se quitan o se quedan — y el inmueble puede regresar peor de como salió.'},
+      {t:'Cómo se entrega al final',
+       d:'El plazo para desocupar, en qué condiciones debe entregarse, la revisión conjunta contra el inventario inicial, y cuándo se devuelve el depósito después de esa revisión.',
+       a:'No prever la entrega. Es el momento donde se concentran casi todos los conflictos, y el único blindaje real es el inventario con fotos del punto 4.'}
+    ]}
+  ];
+  var arrEstado=[], arrTitulos=[];
+  (function pintaArrendamiento(){
+    var cont=$('arrList'), i=0;
+    ARR_BLOQUES.forEach(function(bloque){
+      var h=document.createElement('p');h.className='subhead';h.textContent=bloque.b;cont.appendChild(h);
+      var caja=document.createElement('div');caja.className='chk';
+      bloque.items.forEach(function(item){
+        var k=i++; arrEstado.push(null); arrTitulos.push(item.t);
+        var d=document.createElement('div');d.className='chk-item';
+        var t=document.createElement('h4');t.textContent=(k+1)+'. '+item.t;
+        var p=document.createElement('p');p.className='what';
+        var fuerte=document.createElement('strong');fuerte.textContent='Debe decir: ';
+        p.appendChild(fuerte);p.appendChild(document.createTextNode(item.d));
+        var seg=document.createElement('div');seg.className='seg';seg.setAttribute('role','group');seg.setAttribute('aria-label','¿Tu contrato lo cubre?');
+        [['si','Sí lo cubre'],['no','No lo dice o no lo entiendo']].forEach(function(o){
+          var b=document.createElement('button');b.type='button';b.dataset.v=o[0];b.textContent=o[1];b.setAttribute('aria-pressed','false');
+          b.addEventListener('click',function(){
+            seg.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed','false');});
+            b.setAttribute('aria-pressed','true');
+            arrEstado[k]=o[0];
+            al.style.display=o[0]==='si'?'none':'block';
+            arrRender();
+          });
+          seg.appendChild(b);
+        });
+        var al=document.createElement('p');al.className='alert';al.textContent='⚠ Señal de alerta: '+item.a;
+        d.appendChild(t);d.appendChild(p);d.appendChild(seg);d.appendChild(al);caja.appendChild(d);
+      });
+      cont.appendChild(caja);
+    });
+  })();
+  function arrRender(){
+    var si=arrEstado.filter(function(v){return v==='si';}).length;
+    var contestados=arrEstado.filter(function(v){return v;}).length;
+    $('arrProg').textContent=si+' de 18 puntos cubiertos'+(contestados<18?' · te faltan '+(18-contestados)+' por revisar':'');
+    if(contestados<18){$('arrVerdict').hidden=true;return;}
+    var box=$('arrVerdict');box.hidden=false;box.classList.remove('ok','warn','bad');
+    var titulo,texto;
+    if(si>=16){box.classList.add('ok');titulo='Tu contrato está bien armado';
+      texto='Cubres '+si+' de 18 puntos. Vale la pena una lectura final de las cláusulas de incumplimiento y garantía, que son las que se usan bajo presión.';}
+    else if(si>=10){box.classList.add('warn');titulo='Tienes lo básico, pero te falta lo que importa';
+      texto='Cubres '+si+' de 18 puntos. Te faltan los puntos que importan cuando algo sale mal. Es el caso más común — y el más engañoso, porque el contrato «se ve completo».';}
+    else{box.classList.add('bad');titulo='Tu contrato te protege poco';
+      texto='Cubres '+si+' de 18 puntos. Si ya está firmado, no entres en pánico: muchas cosas se corrigen con un convenio modificatorio firmado por ambas partes. Si todavía no firmas, estás justo a tiempo.';}
+    $('arrTitle').textContent=titulo;$('arrText').textContent=texto;
+    tag($('arrTagNum'),si>=16?'ok':(si>=10?'warn':'bad'),si+' de 18 cubiertos',si+' de 18 cubiertos',si+' de 18 cubiertos');
+    var faltan=arrTitulos.filter(function(t,k){return arrEstado[k]!=='si';});
+    $('arrFaltan').textContent=faltan.length?'Lo que te falta: '+faltan.map(function(t,i){return t;}).join(' · '):'No te falta ningún punto.';
+    $('arrWA').href=wa(WA_GN,'Revisé mi contrato de arrendamiento con la lista de los 18 puntos en bolanosnavarro.com: cubro '+si+' de 18.'+(faltan.length?' Me faltan: '+faltan.join('; ')+'.':'')+' Quiero que lo revisen conmigo.');
+  }
+  arrRender();
 })();
 </script>
 </body>

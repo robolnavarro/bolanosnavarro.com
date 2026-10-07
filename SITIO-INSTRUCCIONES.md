@@ -19,11 +19,12 @@ Copia de prueba: https://bolanosnavarro.rodrigo-825.workers.dev
 ## Archivos
 - `index.html` — sitio maestro. Tres vistas por hash: #inicio, #inmobiliaria, #despacho.
   Deep links de campaña (ManyChat): #checklist, #torre, #foraneo, #credito,
-  #inversion, #comparador (alias #contado y #banco).
+  #inversion, #comparador (alias #contado y #banco),
+  #arrendamiento (alias #contrato y #renta).
   #inmobiliaria muestra un botón "Abrir" por entregable (lista `.hub`); cada deep
   link abre ese entregable solo, con "← Todas las herramientas" para volver.
 - Enlaces cortos para CTAs: `checklist.html`, `torre.html`, `foraneo.html`,
-  `credito.html`, `inversion.html`, `comparador.html` → se sirven como bolanosnavarro.com/torre, etc.
+  `credito.html`, `inversion.html`, `comparador.html`, `arrendamiento.html` → se sirven como bolanosnavarro.com/torre, etc.
   Solo redirigen a /#torre (conservando ?utm) y traen título/descripción propios
   para la vista previa de WhatsApp. Si se agrega un entregable: tarjeta en `.hub`,
   entrada en `TOOLMAP` y su archivo corto.
@@ -52,6 +53,11 @@ Copia de prueba: https://bolanosnavarro.rodrigo-825.workers.dev
   (rend/12) y la mensualidad se invierte como anualidad vencida; la posición con
   crédito resta el saldo insoluto al horizonte. Textos de perfiles en
   `CC_PERFILES`. Si cambia la hoja, actualizar aquí también.
+- **Checklist de arrendamiento** (herramienta 07, `t6`): réplica del documento
+  de Drive `Entregables/Checklist_Contrato_Arrendamiento`. Los 18 puntos viven
+  en `ARR_BLOQUES` (4 bloques con título, «debe decir» y señal de alerta); el
+  semáforo es 16-18 / 10-15 / menos de 10. Si cambia el documento, actualizar
+  `ARR_BLOQUES`.
 - **Datos de Torre Paseo del Parque**: inputs por defecto `pdpPrecio` (3300000)
   y `pdpRenta` (15977), y las barras comparativas de $/m².
 - **Números de WhatsApp**: `WA_GN='524434101638'` (campañas inmobiliarias)
