@@ -17,14 +17,17 @@ Copia de prueba: https://bolanosnavarro.rodrigo-825.workers.dev
 - Cloudflare usa URLs limpias: `/testimonio.html` redirige a `/testimonio`.
 
 ## Archivos
-- `index.html` — sitio maestro. Tres vistas por hash: #inicio, #inmobiliaria, #despacho.
+- `index.html` — sitio maestro. Vistas por hash: #inicio, #inmobiliaria, #despacho
+  y #segale (landing de inmueble, sin pestaña propia; marca Inmobiliaria como activa).
+  #inmuebles baja a la sección Inmuebles dentro de Inmobiliaria (ver `ANCLAS`).
   Deep links de campaña (ManyChat): #checklist, #torre, #foraneo, #credito,
   #inversion, #comparador (alias #contado y #banco),
   #arrendamiento (alias #contrato y #renta).
   #inmobiliaria muestra un botón "Abrir" por entregable (lista `.hub`); cada deep
   link abre ese entregable solo, con "← Todas las herramientas" para volver.
 - Enlaces cortos para CTAs: `checklist.html`, `torre.html`, `foraneo.html`,
-  `credito.html`, `inversion.html`, `comparador.html`, `arrendamiento.html` → se sirven como bolanosnavarro.com/torre, etc.
+  `credito.html`, `inversion.html`, `comparador.html`, `arrendamiento.html`,
+  `inmuebles.html`, `segale.html` → se sirven como bolanosnavarro.com/torre, etc.
   Solo redirigen a /#torre (conservando ?utm) y traen título/descripción propios
   para la vista previa de WhatsApp. Si se agrega un entregable: tarjeta en `.hub`,
   entrada en `TOOLMAP` y su archivo corto.
@@ -58,6 +61,15 @@ Copia de prueba: https://bolanosnavarro.rodrigo-825.workers.dev
   en `ARR_BLOQUES` (4 bloques con título, «debe decir» y señal de alerta); el
   semáforo es 16-18 / 10-15 / menos de 10. Si cambia el documento, actualizar
   `ARR_BLOQUES`.
+- **Inmuebles**: sección `#inmuebles` en la vista Inmobiliaria con una tarjeta
+  `.inm-card` por propiedad. Para agregar otro inmueble: tarjeta nueva + una
+  vista `<main id="..." class="view">` como la de `#segale`, el id en `views`, y
+  su archivo de enlace corto. Fotos en `img/` (vienen del lienzo de diseño
+  «Ficha Técnica Torre Segale»).
+- **Formulario de Torre Segale** (`segForm`): no guarda nada; abre WhatsApp con
+  el resumen hacia `WA_RB` (443 128 1399). Precios y disponibilidad de los 8
+  departamentos están en el HTML de `#segale` (bloque `.deps`) y en el `select`
+  del formulario: si cambian, actualizar los dos.
 - **Datos de Torre Paseo del Parque**: inputs por defecto `pdpPrecio` (3300000)
   y `pdpRenta` (15977), y las barras comparativas de $/m².
 - **Números de WhatsApp**: `WA_GN='524434101638'` (campañas inmobiliarias)

@@ -229,6 +229,73 @@ section.block h2{font-size:clamp(1.7rem,4vw,2.5rem);font-weight:800;text-transfo
 
 .arr-prog{font-weight:800;text-transform:uppercase;letter-spacing:.03em;font-size:.9rem;color:var(--green);margin:1.6rem 0 .4rem}
 .arr-faltan{margin-top:.8rem;font-size:.92rem;color:var(--muted)}
+/* Inmuebles y landing Torre Segale */
+.eyebrow{display:block;font-size:.8rem;font-weight:800;text-transform:uppercase;letter-spacing:.18em;color:var(--green)}
+#inmuebles{margin-top:clamp(2.5rem,6vh,4rem)}
+.inm-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.6rem;margin-top:1.8rem}
+.inm-card{display:block;text-decoration:none;color:inherit;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--surface);transition:border-color .15s}
+.inm-card:hover{border-color:var(--green)}
+.inm-card img{width:100%;height:230px;object-fit:cover}
+.inm-body{padding:1.4rem 1.5rem 1.6rem;display:grid;gap:.5rem;justify-items:start}
+.inm-body h3{font-size:clamp(1.4rem,3vw,1.9rem);font-weight:900;text-transform:uppercase;letter-spacing:-.01em}
+.inm-body p{color:var(--muted)}
+.inm-meta{display:flex;flex-wrap:wrap;gap:.5rem 1.2rem;font-weight:800;font-size:.95rem}
+.inm-meta span:last-child{color:var(--muted);font-weight:600}
+.seg-hero{position:relative;margin-top:1.4rem;border-radius:8px;overflow:hidden}
+.seg-hero img{width:100%;height:clamp(240px,46vw,520px);object-fit:cover;object-position:center 45%}
+.seg-cap{position:absolute;left:0;bottom:0;background:var(--green-deep);color:var(--on-dark);font-size:.75rem;font-weight:800;text-transform:uppercase;letter-spacing:.14em;padding:.6rem .9rem}
+.seg-head{margin-top:2rem;display:grid;gap:.9rem}
+.seg-head h1{font-size:clamp(2.2rem,6vw,4rem)}
+.seg-head h1 em{font-style:italic;color:var(--green)}
+.seg-stats{margin-top:2rem;display:grid;grid-template-columns:repeat(4,1fr);border-top:2px solid var(--ink)}
+.seg-stats div{padding:1rem 1rem 0 0}
+.seg-stats div+div{border-left:1px solid var(--line);padding-left:1rem}
+.seg-stats strong{display:block;font-size:clamp(1.6rem,4vw,2.4rem);font-weight:900;line-height:1}
+.seg-stats span{display:block;margin-top:.4rem;font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+@media (max-width:620px){.seg-stats{grid-template-columns:1fr 1fr}.seg-stats div:nth-child(3){border-left:0;padding-left:0}.seg-stats div:nth-child(n+3){border-top:1px solid var(--line);margin-top:1rem}}
+.seg-band{align-items:center}
+.seg-band h3{font-size:clamp(1.8rem,4.5vw,2.6rem);margin-top:.3rem}
+.seg-band .eyebrow{color:var(--green-bright)}
+.seg-band-ctas{display:flex;flex-wrap:wrap;gap:.7rem}
+.seg-band .btn.line{background:transparent;color:var(--on-dark);border:2px solid var(--on-dark)}
+.deps{display:grid;gap:.8rem;margin-top:1.8rem}
+.dep{border:1px solid var(--line);border-radius:8px;padding:1.1rem 1.2rem;background:var(--surface)}
+.dep-top{display:flex;align-items:baseline;justify-content:space-between;gap:1rem}
+.dep-num{font-size:1.5rem;font-weight:900}
+.dep-precio{font-size:1.15rem;font-weight:800;color:var(--green)}
+.dep-estado{font-size:.75rem;font-weight:800;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);border:1px solid var(--line);padding:.3rem .6rem;border-radius:999px}
+.dep-meta{display:flex;flex-wrap:wrap;gap:.3rem .9rem;margin-top:.5rem;font-size:.92rem;color:var(--muted);font-weight:600}
+.dep-extra{margin-top:.5rem;font-size:.95rem}
+.dep.vendido{opacity:.55}
+.seg-incluye{display:grid;grid-template-columns:1.4fr 1fr;gap:1.6rem;margin-top:2rem}
+@media (max-width:680px){.seg-incluye{grid-template-columns:1fr}}
+.seg-lista{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:.5rem 1.2rem;margin-top:.9rem}
+@media (max-width:520px){.seg-lista{grid-template-columns:1fr}}
+.seg-lista li{position:relative;padding-left:1.3rem}
+.seg-lista li::before{content:'✓';position:absolute;left:0;color:var(--green);font-weight:900}
+.seg-edificio{background:var(--green-deep);color:var(--on-dark);border-radius:8px;padding:1.3rem 1.4rem}
+.seg-edificio .eyebrow{color:var(--green-bright)}
+.seg-edificio p{margin-top:.6rem}
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem;margin-top:1.8rem}
+@media (max-width:760px){.gal{grid-template-columns:1fr 1fr}}
+@media (max-width:460px){.gal{grid-template-columns:1fr}}
+.gal figure{position:relative;border-radius:6px;overflow:hidden}
+.gal-wide{grid-column:span 2}
+@media (max-width:460px){.gal-wide{grid-column:auto}}
+.gal img{width:100%;height:230px;object-fit:cover}
+.gal figcaption{position:absolute;left:0;bottom:0;background:var(--green-deep);color:var(--on-dark);font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;padding:.45rem .7rem}
+.seg-ubic{display:grid;grid-template-columns:320px 1fr;gap:2rem;margin-top:1.8rem;align-items:start}
+@media (max-width:760px){.seg-ubic{grid-template-columns:1fr}}
+.seg-ubic img{width:100%;height:clamp(260px,40vw,440px);object-fit:cover;object-position:center 40%;border-radius:8px}
+.seg-dir{font-size:1.3rem;font-weight:800;margin:.4rem 0 1rem}
+.seg-dir span{display:block;font-size:1rem;font-weight:500;color:var(--muted);margin-top:.2rem}
+.seg-puntos{list-style:none;display:grid;gap:.8rem;margin-top:1.6rem;border-top:1px solid var(--line);padding-top:1.2rem;counter-reset:p}
+.seg-puntos li{position:relative;padding-left:2.2rem;color:var(--muted)}
+.seg-puntos li::before{counter-increment:p;content:'0' counter(p);position:absolute;left:0;color:var(--green);font-weight:900}
+.seg-form{margin-top:1.8rem;display:grid;gap:1.2rem;max-width:46rem}
+.seg-form textarea{width:100%;font-family:inherit;font-size:1.05rem;font-weight:500;color:var(--ink);background:var(--input-bg);border:1.5px solid var(--input-line);border-radius:6px;padding:.8rem .95rem;line-height:1.5;resize:vertical}
+.seg-form .btn{justify-self:start}
+.seg-gracias{margin-top:1.2rem;background:var(--surface);border-left:4px solid var(--green);border-radius:0 8px 8px 0;padding:1.1rem 1.2rem;color:var(--muted)}
 .casos{display:grid;gap:.9rem;margin-top:1rem}
 .caso h4{font-size:.82rem;font-weight:800;text-transform:uppercase;letter-spacing:.03em;color:var(--muted)}
 .caso p{font-size:.98rem;margin-top:.15rem}
@@ -310,6 +377,24 @@ footer a{color:#D9DFD9}
       <h1 class="display">Herramientas de mis campañas</h1>
       <p class="sub">Nada de descargas ni plantillas: llena tus datos aquí y ve tu resultado al instante. Cuando lo tengas, mándamelo por WhatsApp y lo revisamos juntos, sin costo.</p>
     </div>
+
+    <section class="block" id="inmuebles">
+      <span class="eyebrow">En venta ahora</span>
+      <h2>Inmuebles</h2>
+      <p class="sub">Los desarrollos y propiedades que estamos vendiendo en Morelia. Cada operación va acompañada de revisión legal.</p>
+      <div class="inm-list">
+        <a class="inm-card" href="#segale" data-nav>
+          <img src="img/segale-vista.jpg" alt="Vista panorámica de Morelia desde un departamento de Torre Segale" loading="lazy">
+          <div class="inm-body">
+            <span class="eyebrow">Morelia · Col. Vista Bella</span>
+            <h3>Torre Segale</h3>
+            <p>Departamentos nuevos de 2 y 3 recámaras en una torre de solo 8 unidades. Entrega inmediata.</p>
+            <div class="inm-meta"><span>Desde $3,080,000</span><span>5 disponibles</span></div>
+            <span class="btn">Ver el desarrollo</span>
+          </div>
+        </a>
+      </div>
+    </section>
 
     <ul class="hub" id="hub">
       <li><a class="hub-card" href="#checklist" data-nav><span class="dnum">01</span><div><h3>Checklist de los 3 papeles</h3><p>Los 3 documentos que revisas ANTES de dar un solo peso de anticipo. Marca cuáles ya viste y obtén tu diagnóstico.</p></div><span class="btn">Abrir</span></a></li>
@@ -714,6 +799,169 @@ footer a{color:#D9DFD9}
   </div>
 </main>
 
+<!-- SEGALE (landing de inmueble, dentro de Inmobiliaria) -->
+<main id="segale" class="view">
+  <div class="wrap">
+    <a class="back" href="#inmuebles" data-nav>← Inmuebles</a>
+
+    <div class="seg-hero">
+      <img src="img/segale-vista.jpg" alt="Vista panorámica de Morelia y los cerros desde el ventanal de un departamento" loading="lazy">
+      <span class="seg-cap">Vista real desde el departamento</span>
+    </div>
+
+    <div class="seg-head">
+      <span class="eyebrow">Morelia · Col. Vista Bella · Torre Segale</span>
+      <h1 class="display">La mejor vista de Morelia, <em>desde tu sala.</em></h1>
+      <p class="sub">Departamentos nuevos de 2 y 3 recámaras en una torre de solo 8 unidades. Ventanales de piso a techo, acabados en madera, y la ciudad entera frente a ti.</p>
+    </div>
+
+    <div class="seg-stats">
+      <div><strong>05</strong><span>Departamentos disponibles</span></div>
+      <div><strong>2–3</strong><span>Recámaras</span></div>
+      <div><strong>127 m²</strong><span>Hasta · superficie</span></div>
+      <div><strong>01</strong><span>Estacionamiento c/u</span></div>
+    </div>
+
+    <div class="banner seg-band">
+      <div>
+        <span class="eyebrow">Estrena desde</span>
+        <h3>$3,080,000 MXN</h3>
+      </div>
+      <div class="seg-band-ctas">
+        <a class="btn" href="#segale-form" data-scroll>Pedir informes</a>
+        <a class="btn line" href="https://wa.me/524434101638?text=Hola%2C%20me%20interesa%20Torre%20Segale" target="_blank" rel="noopener">WhatsApp 443 410 1638</a>
+      </div>
+    </div>
+
+    <section class="block">
+      <span class="eyebrow">Ocho departamentos. Solo cinco disponibles.</span>
+      <h2>¿Cuál se siente como tú?</h2>
+      <div class="deps">
+        <div class="dep">
+          <div class="dep-top"><span class="dep-num">101</span><span class="dep-precio">$3,120,000</span></div>
+          <div class="dep-meta"><span>1.º piso</span><span>78 m²</span><span>2 rec.</span><span>1 baño</span><span>$40,000/m²</span></div>
+        </div>
+        <div class="dep vendido">
+          <div class="dep-top"><span class="dep-num">102</span><span class="dep-estado">Vendido</span></div>
+          <div class="dep-meta"><span>1.º piso</span><span>73 m²</span><span>2 rec.</span><span>1 baño</span></div>
+        </div>
+        <div class="dep">
+          <div class="dep-top"><span class="dep-num">103</span><span class="dep-precio">$3,080,000</span></div>
+          <div class="dep-meta"><span>1.º piso</span><span>83 m²</span><span>2 rec.</span><span>1 baño</span><span>$37,108/m²</span></div>
+        </div>
+        <div class="dep vendido">
+          <div class="dep-top"><span class="dep-num">201</span><span class="dep-estado">Vendido</span></div>
+          <div class="dep-meta"><span>2.º piso</span><span>78 m²</span><span>2 rec.</span><span>1 baño</span></div>
+        </div>
+        <div class="dep vendido">
+          <div class="dep-top"><span class="dep-num">202</span><span class="dep-estado">Vendido</span></div>
+          <div class="dep-meta"><span>2.º piso</span><span>73 m²</span><span>2 rec.</span><span>1 baño</span></div>
+        </div>
+        <div class="dep">
+          <div class="dep-top"><span class="dep-num">203</span><span class="dep-precio">$3,245,000</span></div>
+          <div class="dep-meta"><span>2.º piso</span><span>83 m²</span><span>2 rec.</span><span>1 baño</span><span>$39,096/m²</span></div>
+        </div>
+        <div class="dep">
+          <div class="dep-top"><span class="dep-num">301</span><span class="dep-precio">$4,015,000</span></div>
+          <div class="dep-meta"><span>3.er piso</span><span>107 m²</span><span>3 rec.</span><span>2 baños</span><span>$37,523/m²</span></div>
+          <p class="dep-extra">Balcón a la ciudad</p>
+        </div>
+        <div class="dep">
+          <div class="dep-top"><span class="dep-num">302</span><span class="dep-precio">$4,590,000</span></div>
+          <div class="dep-meta"><span>3.er piso</span><span>127 m²</span><span>3 rec.</span><span>2 baños</span><span>$36,142/m²</span></div>
+          <p class="dep-extra">Balcón a la ciudad · 2 vestidores · Sala de TV</p>
+        </div>
+      </div>
+
+      <div class="seg-incluye">
+        <div>
+          <span class="eyebrow">Todos los departamentos incluyen</span>
+          <ul class="seg-lista">
+            <li>Cisterna independiente</li>
+            <li>Cerradura principal digital</li>
+            <li>Cocina con desayunador</li>
+            <li>Cuarto de lavado interior</li>
+            <li>Sala y comedor integrados</li>
+            <li>1 cajón de estacionamiento</li>
+          </ul>
+        </div>
+        <div class="seg-edificio">
+          <span class="eyebrow">El edificio</span>
+          <p>8 departamentos en 3 niveles sobre planta de estacionamiento. Acceso por escaleras, sin elevador.</p>
+        </div>
+      </div>
+      <p class="legal">Precios en pesos mexicanos, sujetos a cambio y disponibilidad sin previo aviso. Superficies aproximadas. Información vigente a octubre de 2026.</p>
+    </section>
+
+    <section class="block">
+      <span class="eyebrow">Cada detalle cuenta</span>
+      <h2>Una mirada al interior</h2>
+      <div class="gal">
+        <figure class="gal-wide"><img src="img/segale-cocina.jpg" alt="Cocina integral con desayunador y pasillo a recámaras" loading="lazy"><figcaption>Cocina con desayunador</figcaption></figure>
+        <figure><img src="img/segale-recamara.jpg" alt="Recámara con ventanal vertical y vista a la ciudad" loading="lazy"><figcaption>Recámara</figcaption></figure>
+        <figure><img src="img/segale-closet.jpg" alt="Recámara con clóset de madera y ventanal en esquina" loading="lazy"><figcaption>Clóset de madera</figcaption></figure>
+        <figure class="gal-wide"><img src="img/segale-balcon.jpg" alt="Balcón con barandal y vista panorámica al centro de Morelia" loading="lazy"><figcaption>Balcón a la ciudad · 301 y 302</figcaption></figure>
+        <figure><img src="img/segale-vestidor.jpg" alt="Vestidor con muebles de madera que conecta al baño" loading="lazy"><figcaption>Vestidor · 302</figcaption></figure>
+        <figure><img src="img/segale-bano.jpg" alt="Baño completo con cancel de vidrio y mueble de lavabo de madera" loading="lazy"><figcaption>Baño completo</figcaption></figure>
+        <figure><img src="img/segale-jardin.jpg" alt="Recámara con ventanal hacia jardín con bugambilias" loading="lazy"><figcaption>Vista al jardín</figcaption></figure>
+      </div>
+      <p class="legal">Las fotografías corresponden a distintos departamentos de la torre; distribución, vista y acabados varían por unidad.</p>
+    </section>
+
+    <section class="block">
+      <span class="eyebrow">El lugar también lo cambia todo</span>
+      <h2>Tu vida en Vista Bella</h2>
+      <div class="seg-ubic">
+        <img src="img/segale-fachada.jpg" alt="Fachada de Torre Segale con acceso vehicular y peatonal" loading="lazy">
+        <div>
+          <span class="eyebrow">Dirección</span>
+          <p class="seg-dir">Calle Atenógenes Segale<br><span>Col. Vista Bella, Morelia, Michoacán</span></p>
+          <a class="btn line" href="https://maps.app.goo.gl/qnPxhrSgTVJ5E2Zx6" target="_blank" rel="noopener">Cómo llegar en Google Maps</a>
+          <ul class="seg-puntos">
+            <li>En la zona alta de Morelia: la ciudad, la Catedral y los cerros a la vista desde los ventanales.</li>
+            <li>Torre privada de solo 8 departamentos, con acceso vehicular y peatonal independientes.</li>
+            <li>Medidores de luz y agua individuales por departamento.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="segale-form">
+      <span class="eyebrow">Hablemos de tus sueños</span>
+      <h2>Deja de imaginarlo. Ven a vivirlo.</h2>
+      <p class="sub">Déjame tus datos y te mando disponibilidad, planos y la cita para que lo veas. Tu mensaje llega directo a mi WhatsApp.</p>
+      <form id="segForm" class="seg-form" novalidate>
+        <div class="fgrid">
+          <div class="field"><label for="sfNombre">Tu nombre</label><input type="text" id="sfNombre" autocomplete="name" placeholder="Ej. María González"></div>
+          <div class="field"><label for="sfTel">Tu teléfono</label><input type="tel" id="sfTel" autocomplete="tel" placeholder="443 123 4567"></div>
+          <div class="field"><label for="sfDepto">¿Qué departamento te interesa?</label>
+            <select id="sfDepto">
+              <option value="El que mejor me acomode">El que mejor me acomode</option>
+              <option value="101 · 78 m² · 2 recámaras · $3,120,000">101 · 78 m² · 2 rec. · $3,120,000</option>
+              <option value="103 · 83 m² · 2 recámaras · $3,080,000">103 · 83 m² · 2 rec. · $3,080,000</option>
+              <option value="203 · 83 m² · 2 recámaras · $3,245,000">203 · 83 m² · 2 rec. · $3,245,000</option>
+              <option value="301 · 107 m² · 3 recámaras · $4,015,000">301 · 107 m² · 3 rec. · $4,015,000</option>
+              <option value="302 · 127 m² · 3 recámaras · $4,590,000">302 · 127 m² · 3 rec. · $4,590,000</option>
+            </select>
+          </div>
+          <div class="field"><label for="sfPago">¿Cómo piensas comprarlo?</label>
+            <select id="sfPago">
+              <option value="Con crédito hipotecario">Con crédito hipotecario</option>
+              <option value="De contado">De contado</option>
+              <option value="Todavía no lo decido">Todavía no lo decido</option>
+            </select>
+          </div>
+        </div>
+        <div class="field"><label for="sfMsg">¿Algo que deba saber? (opcional)</label><textarea id="sfMsg" rows="3" placeholder="Cuándo te gustaría verlo, dudas sobre el crédito, etc."></textarea></div>
+        <p class="err" id="sfErr">Escribe tu nombre y tu teléfono para poder contactarte.</p>
+        <button type="submit" class="btn">Enviar por WhatsApp</button>
+        <p class="fnote">Al enviar se abre WhatsApp con tu mensaje ya escrito, dirigido al Lic. Rodrigo Bolaños Navarro (443 128 1399). Nada se envía sin que tú lo confirmes.</p>
+      </form>
+      <p class="legal">Precios, superficies y disponibilidad sujetos a cambio sin previo aviso; no constituyen una oferta vinculante. Toda operación se acompaña con revisión legal por abogados. Grupo Navarro · Bolaños Navarro &amp; Asociados · Morelia, Michoacán.</p>
+    </section>
+  </div>
+</main>
+
 <!-- DESPACHO -->
 <main id="despacho" class="view">
   <div class="wrap">
@@ -774,7 +1022,7 @@ footer a{color:#D9DFD9}
   function money(el,v,signed){el.textContent=(signed&&v<0?'('+fmt.format(Math.abs(v))+')':fmt.format(v));el.classList.remove('pos','neg');if(signed){el.classList.add(v>=0?'pos':'neg');}}
 
   /* ---- Navegación de vistas y deep links por campaña ---- */
-  var views=['inicio','inmobiliaria','despacho'];
+  var views=['inicio','inmobiliaria','despacho','segale'];
   var TOOLMAP={
     'checklist':{t:'t1',n:'01'},'3papeles':{t:'t1',n:'01'},
     'torre':{t:'t2',n:'02'},'paseodelparque':{t:'t2',n:'02'},
@@ -784,13 +1032,21 @@ footer a{color:#D9DFD9}
     'comparador':{t:'t5',n:'06'},'contado':{t:'t5',n:'06'},'banco':{t:'t5',n:'06'},
     'arrendamiento':{t:'t6',n:'07'},'contrato':{t:'t6',n:'07'},'renta':{t:'t6',n:'07'}
   };
+  var ANCLAS={'inmuebles':{v:'inmobiliaria',el:'inmuebles'},'torresegale':{v:'segale'},'segale-form':{v:'segale',el:'segale-form'}};
   function show(id){
     id=(id||'').toLowerCase();
+    var ancla=ANCLAS[id];
+    if(ancla){
+      show(ancla.v);
+      if(ancla.el){var destino=$(ancla.el);if(destino)setTimeout(function(){destino.scrollIntoView({behavior:'smooth',block:'start'});},60);}
+      return;
+    }
     var tool=TOOLMAP[id];
     var vid=tool?'inmobiliaria':(views.indexOf(id)!==-1?id:'inicio');
+    var navId=(vid==='segale')?'inmobiliaria':vid;
     views.forEach(function(v){$(v).classList.toggle('active',v===vid);});
     document.querySelectorAll('nav a[data-nav]').forEach(function(a){
-      if(a.getAttribute('href')==='#'+vid){a.setAttribute('aria-current','page');}else{a.removeAttribute('aria-current');}
+      if(a.getAttribute('href')==='#'+navId){a.setAttribute('aria-current','page');}else{a.removeAttribute('aria-current');}
     });
     var inmo=$('inmobiliaria');
     inmo.classList.toggle('single',!!tool);
@@ -1263,6 +1519,35 @@ footer a{color:#D9DFD9}
     $('arrWA').href=wa(WA_GN,'Revisé mi contrato de arrendamiento con la lista de los 18 puntos en bolanosnavarro.com: cubro '+si+' de 18.'+(faltan.length?' Me faltan: '+faltan.join('; ')+'.':'')+' Quiero que lo revisen conmigo.');
   }
   arrRender();
+
+  /* ---- Formulario de Torre Segale: manda el resumen al WhatsApp del despacho ---- */
+  (function(){
+    var f=$('segForm'); if(!f) return;
+    f.addEventListener('submit',function(e){
+      e.preventDefault();
+      var nombre=$('sfNombre').value.trim(), tel=$('sfTel').value.trim(), err=$('sfErr');
+      if(!nombre||tel.replace(/\D/g,'').length<10){err.style.display='block';err.scrollIntoView({behavior:'smooth',block:'center'});return;}
+      err.style.display='none';
+      var msg='INFORMES — TORRE SEGALE\n'
+        +'Nombre: '+nombre+'\n'
+        +'Teléfono: '+tel+'\n'
+        +'Departamento de interés: '+$('sfDepto').value+'\n'
+        +'Forma de compra: '+$('sfPago').value
+        +($('sfMsg').value.trim()?'\n\n'+$('sfMsg').value.trim():'')
+        +'\n\nVengo de bolanosnavarro.com/inmuebles';
+      window.open(wa(WA_RB,msg),'_blank');
+      var ok=$('segGracias');
+      if(!ok){ok=document.createElement('p');ok.id='segGracias';ok.className='seg-gracias';f.appendChild(ok);}
+      ok.textContent='Se abrió WhatsApp con tu mensaje listo. Si no se abrió, escríbeme al 443 128 1399.';
+    });
+  })();
+  /* Enlaces internos de la landing (por ejemplo «Pedir informes») */
+  document.querySelectorAll('a[data-scroll]').forEach(function(a){
+    a.addEventListener('click',function(e){
+      var destino=$(a.getAttribute('href').slice(1));
+      if(destino){e.preventDefault();destino.scrollIntoView({behavior:'smooth',block:'start'});}
+    });
+  });
 })();
 </script>
 </body>
