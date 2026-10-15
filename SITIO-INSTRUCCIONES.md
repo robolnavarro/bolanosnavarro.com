@@ -84,6 +84,38 @@ Copia de prueba: https://bolanosnavarro.rodrigo-825.workers.dev
   desde la leyenda `.legal.consent` bajo los botones `lWA`, `aWA` y `ccWA`
   (consentimiento expreso para datos financieros: no borrarla).
 
+## Infraestructura y accesos (cuenta de Rodrigo)
+- GitHub: `robolnavarro/bolanosnavarro.com`, repo **público**, rama `main`.
+  Desde una computadora nueva: `git clone` y, en el primer push, un token
+  fine-grained con permiso Contents (lectura y escritura) solo para este repo.
+- Cloudflare: Worker `bolanosnavarro` (cuenta rodrigo-825), conectado al repo
+  por Workers Builds. `keep_vars: true` en `wrangler.jsonc` conserva las
+  variables creadas desde el panel.
+- Base de datos D1 `testimonios` (id en `wrangler.jsonc`). La tabla se crea sola
+  en el primer uso de la API.
+- `ADMIN_KEY` es un **secreto del Worker** (Settings → Variables and Secrets).
+  Solo Rodrigo la conoce; nunca pedirla, pegarla ni guardarla en el repo.
+- Google Analytics: etiqueta `G-Q00EQZ4N8N` en `index.html` y `testimonio.html`,
+  una sola vez por página, justo después de `<head>`. Los archivos de enlace
+  corto no la llevan, para no contar doble.
+- Prueba local: `npx wrangler@4 dev --local` con `ADMIN_KEY` en `.dev.vars`.
+  Ojo: `compatibility_date` no puede ser posterior a la versión de wrangler que
+  tengas instalada, o el servidor local no arranca.
+- El DNS del proveedor del usuario (Telmex) puede seguir mostrando la página
+  vieja «Próximamente» por caché. Eso es del proveedor, no del sitio.
+
+## Pendientes (al 14 de octubre de 2026)
+1. Hay **3 testimonios pendientes** de aprobar en bolanosnavarro.com/admin.
+   Rodrigo pidió aprobarlos «clasificándolos correctamente» (negocio y tipo de
+   experiencia); el panel ya permite reclasificar, pero hay que entrar con la
+   clave, que solo tiene él.
+2. Falta decidir los números de WhatsApp de la landing de Torre Segale: los
+   botones «Agenda tu visita» y WhatsApp usan 443 410 1638 (como el diseño
+   original) y el formulario usa 443 128 1399. Preguntar si se unifican.
+3. Si cambian las fuentes en Drive (`Entregables/Mi_Comparador_BANCO` y
+   `Entregables/Checklist_Contrato_Arrendamiento`), actualizar las herramientas
+   06 y 07.
+
 ## Reglas
 1. Todo cambio se hace por edición directa del HTML, se verifica la sintaxis
    del <script> y se hace commit + push a `main`. Eso ya lo publica.
