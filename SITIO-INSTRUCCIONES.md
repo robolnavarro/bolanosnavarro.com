@@ -8,6 +8,19 @@ atiende `/api/*` (testimonios) y lo demás lo sirve de los archivos.
 `.assetsignore` evita publicar `src/`, `wrangler.jsonc` y este archivo.
 Copia de prueba: https://bolanosnavarro.rodrigo-825.workers.dev
 
+## Mudanza a gruponavarro.mx (15 de octubre de 2026)
+Decisión de Rodrigo: las 7 herramientas viven ahora en **https://entregables.gruponavarro.mx** (identidad Navarro,
+WhatsApp 443 410 1638, aviso de gruponavarro.mx) y Torre Segale en **https://segale.gruponavarro.mx**. Aquí solo
+quedan las redirecciones, que conservan el `?utm`:
+- `index.html`: un script al inicio del `<head>` y las primeras líneas de `show()` mandan los hashes de
+  `TOOLMAP` (#checklist, #torre, … y sus alias) a entregables.gruponavarro.mx con el mismo hash, y #segale,
+  #torresegale y #segale-form a segale.gruponavarro.mx. Así funcionan las ligas viejas y los botones «Abrir».
+- `checklist.html`, `torre.html`, `foraneo.html`, `credito.html`, `inversion.html`, `comparador.html`,
+  `arrendamiento.html` → `entregables.gruponavarro.mx/<nombre>/`; `segale.html` → `segale.gruponavarro.mx/`.
+- El código de las herramientas y de la landing de Segale sigue dentro de `index.html`, pero ya no se ve. Las
+  herramientas se editan en el repo GBN: `05-infraestructura/sitios-gruponavarro/entregables/` (se publican en el
+  cPanel de Hospedando).
+
 ## Dominio y DNS
 - El dominio está registrado en Squarespace, pero el DNS lo maneja Cloudflare.
 - `bolanosnavarro.com` es el dominio personalizado del Worker.

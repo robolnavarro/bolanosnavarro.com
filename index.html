@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+<script>/* 15-oct-2026: las herramientas se mudaron a entregables.gruponavarro.mx y Torre Segale a segale.gruponavarro.mx */
+(function(){var h=(location.hash.slice(1)||'').toLowerCase();
+var T={'checklist':1,'3papeles':1,'torre':1,'paseodelparque':1,'foraneo':1,'adistancia':1,'credito':1,'corrida':1,'inversion':1,'alcancia':1,'comparador':1,'contado':1,'banco':1,'arrendamiento':1,'contrato':1,'renta':1};
+if(T[h])location.replace('https://entregables.gruponavarro.mx/'+location.search+'#'+h);
+else if(h==='segale'||h==='torresegale'||h==='segale-form')location.replace('https://segale.gruponavarro.mx/'+location.search);})();
+</script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q00EQZ4N8N"></script>
 <script>
@@ -1041,6 +1047,8 @@ footer a{color:#D9DFD9}
   var ANCLAS={'inmuebles':{v:'inmobiliaria',el:'inmuebles'},'torresegale':{v:'segale'},'segale-form':{v:'segale',el:'segale-form'}};
   function show(id){
     id=(id||'').toLowerCase();
+    if(TOOLMAP[id]){location.replace('https://entregables.gruponavarro.mx/'+location.search+'#'+id);return;}
+    if(id==='segale'||id==='torresegale'||id==='segale-form'){location.replace('https://segale.gruponavarro.mx/'+location.search);return;}
     var ancla=ANCLAS[id];
     if(ancla){
       show(ancla.v);
