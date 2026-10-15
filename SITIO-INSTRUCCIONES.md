@@ -72,8 +72,17 @@ Copia de prueba: https://bolanosnavarro.rodrigo-825.workers.dev
   del formulario: si cambian, actualizar los dos.
 - **Datos de Torre Paseo del Parque**: inputs por defecto `pdpPrecio` (3300000)
   y `pdpRenta` (15977), y las barras comparativas de $/m².
-- **Números de WhatsApp**: `WA_GN='524434101638'` (campañas inmobiliarias)
-  y `WA_RB='524431281399'` (despacho y general).
+- **Números de WhatsApp**: desde el 14-oct-2026 **todo** lo del sitio va al
+  443 128 1399 (`WA_GN` y `WA_RB` valen `524431281399`). El 443 410 1638 de Grupo
+  Navarro ya no se usa en el sitio.
+- **Origen del prospecto**: `ORIGEN` agrega « · vía <utm_source>-<UTM_CAMPAIGN>» al
+  mensaje de WhatsApp cuando la visita trae `utm_campaign` (los enlaces cortos
+  conservan el `?utm`).
+- **Aviso de privacidad**: `aviso-de-privacidad.html` → bolanosnavarro.com/aviso-de-privacidad.
+  Se genera desde el repo GBN (`05-infraestructura/scripts/documentos-navarro`,
+  `node html.js aviso-privacidad.js`); no editarlo a mano. Ligado desde el pie y
+  desde la leyenda `.legal.consent` bajo los botones `lWA`, `aWA` y `ccWA`
+  (consentimiento expreso para datos financieros: no borrarla).
 
 ## Reglas
 1. Todo cambio se hace por edición directa del HTML, se verifica la sintaxis

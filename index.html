@@ -300,6 +300,7 @@ section.block h2{font-size:clamp(1.7rem,4vw,2.5rem);font-weight:800;text-transfo
 .caso h4{font-size:.82rem;font-weight:800;text-transform:uppercase;letter-spacing:.03em;color:var(--muted)}
 .caso p{font-size:.98rem;margin-top:.15rem}
 .legal{font-size:.82rem;color:var(--muted);margin-top:2rem;line-height:1.55}
+.legal.consent{margin-top:.8rem;font-size:.76rem}
 
 footer{background:#0A0F0B;color:#D9DFD9;margin-top:clamp(2rem,5vh,3rem)}
 footer .cols{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;padding:3rem 0 2rem;border-bottom:1px solid #1E2A21}
@@ -603,6 +604,7 @@ footer a{color:#D9DFD9}
               <div class="vtags"><span class="vtag" id="lTagIni"></span><span class="vtag" id="lTagMes"></span></div>
               <p id="lVText"></p>
               <a class="btn" id="lWA" href="#" target="_blank" rel="noopener">Enviar mi corrida y que la revisen gratis</a>
+              <p class="legal consent">Al tocar «Enviar», autorizo expresamente a BolNav, S.A.P.I. de C.V. a tratar los datos financieros incluidos en mi resultado para revisarlo conmigo, conforme a su <a href="/aviso-de-privacidad">aviso de privacidad</a>.</p>
             </div>
           </div>
 
@@ -640,6 +642,7 @@ footer a{color:#D9DFD9}
               <p id="aVText"></p>
               <p>Cómo leerlo: el inquilino casi nunca cubre el 100% de la mensualidad — y está bien. Lo que compras con tu aportación es CAPITAL: cada pago reduce lo que debes, y a eso se suma la plusvalía de la zona.</p>
               <a class="btn" id="aWA" href="#" target="_blank" rel="noopener">Enviar mi corrida y que la revisen gratis</a>
+              <p class="legal consent">Al tocar «Enviar», autorizo expresamente a BolNav, S.A.P.I. de C.V. a tratar los datos financieros incluidos en mi resultado para revisarlo conmigo, conforme a su <a href="/aviso-de-privacidad">aviso de privacidad</a>.</p>
             </div>
           </div>
           <p class="legal">Estas corridas son una orientación con supuestos típicos; no son una autorización de crédito ni una garantía de renta. La aprobación, tasa, monto y condiciones finales las determina cada institución (banco y/o INFONAVIT/FOVISSSTE) con tu expediente. Los datos de INFONAVIT salen de tu propio precalificador oficial en Mi Cuenta Infonavit. Precio de vivienda sujeto a cambio. Toda compra se acompaña con revisión legal por abogados. Grupo Navarro · Morelia, Michoacán.</p>
@@ -735,6 +738,7 @@ footer a{color:#D9DFD9}
             <div class="vtags"><span class="vtag" id="ccTagAlc"></span><span class="vtag" id="ccTagMes"></span><span class="vtag" id="ccTagCol"></span></div>
             <p id="ccVText"></p>
             <a class="btn" id="ccWA" href="#" target="_blank" rel="noopener">Enviar mi comparación y revisarla sin costo</a>
+              <p class="legal consent">Al tocar «Enviar», autorizo expresamente a BolNav, S.A.P.I. de C.V. a tratar los datos financieros incluidos en mi resultado para revisarlo conmigo, conforme a su <a href="/aviso-de-privacidad">aviso de privacidad</a>.</p>
           </div>
           <div class="rows" style="margin-top:1.4rem">
             <div class="row"><span>Posición si pagas de CONTADO</span><strong id="ccResCo"></strong></div>
@@ -829,7 +833,7 @@ footer a{color:#D9DFD9}
       </div>
       <div class="seg-band-ctas">
         <a class="btn" href="#segale-form" data-scroll>Pedir informes</a>
-        <a class="btn line" href="https://wa.me/524434101638?text=Hola%2C%20me%20interesa%20Torre%20Segale" target="_blank" rel="noopener">WhatsApp 443 410 1638</a>
+        <a class="btn line" href="https://wa.me/524431281399?text=Hola%2C%20me%20interesa%20Torre%20Segale" target="_blank" rel="noopener">WhatsApp 443 128 1399</a>
       </div>
     </div>
 
@@ -1004,7 +1008,7 @@ footer a{color:#D9DFD9}
       </div>
     </div>
     <div class="foot-base">
-      <span>© 2026 Rodrigo Bolaños Navarro · Morelia, Michoacán</span>
+      <span>© 2026 Rodrigo Bolaños Navarro · Morelia, Michoacán · <a href="/aviso-de-privacidad">Aviso de privacidad</a></span>
       <span><a href="https://wa.me/524431281399" target="_blank" rel="noopener">WhatsApp 443 128 1399</a></span>
     </div>
   </div>
@@ -1013,8 +1017,10 @@ footer a{color:#D9DFD9}
 <script>
 (function(){
   'use strict';
-  var WA_GN='524434101638', WA_RB='524431281399';
-  function wa(num,msg){return 'https://wa.me/'+num+'?text='+encodeURIComponent(msg);}
+  var WA_GN='524431281399', WA_RB='524431281399'; // desde 14-oct-2026 todo lo del sitio va al 443 128 1399
+  // Agrega al mensaje de dónde viene el prospecto (utm_source/utm_campaign), p. ej. « · vía instagram-PAPELES»
+  var ORIGEN=(function(){try{var p=new URLSearchParams(location.search);var c=p.get('utm_campaign');return c?' · vía '+(p.get('utm_source')||'web')+'-'+c.toUpperCase():'';}catch(e){return '';}})();
+  function wa(num,msg){return 'https://wa.me/'+num+'?text='+encodeURIComponent(msg+ORIGEN);}
   var fmt=new Intl.NumberFormat('es-MX',{style:'currency',currency:'MXN',maximumFractionDigits:0});
   function $(id){return document.getElementById(id);}
   function n(id){var v=parseFloat($(id).value);return isFinite(v)&&v>=0?v:0;}
