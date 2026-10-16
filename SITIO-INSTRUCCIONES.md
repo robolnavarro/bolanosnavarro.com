@@ -122,12 +122,17 @@ quedan las redirecciones, que conservan el `?utm`:
    Rodrigo pidió aprobarlos «clasificándolos correctamente» (negocio y tipo de
    experiencia); el panel ya permite reclasificar, pero hay que entrar con la
    clave, que solo tiene él.
-2. Falta decidir los números de WhatsApp de la landing de Torre Segale: los
-   botones «Agenda tu visita» y WhatsApp usan 443 410 1638 (como el diseño
-   original) y el formulario usa 443 128 1399. Preguntar si se unifican.
-3. Si cambian las fuentes en Drive (`Entregables/Mi_Comparador_BANCO` y
-   `Entregables/Checklist_Contrato_Arrendamiento`), actualizar las herramientas
-   06 y 07.
+2. ~~WhatsApp de la landing de Torre Segale~~ y ~~fuentes de las herramientas 06 y 07~~: ya no aplican; la landing
+   y las herramientas viven en segale.gruponavarro.mx y entregables.gruponavarro.mx (16-oct-2026).
+
+## 16-oct-2026: el sitio queda solo con el despacho
+Decisión de Rodrigo: se quitó la vista «Inmobiliaria» (inmuebles, landing de Torre Segale y las 7 herramientas
+incrustadas) y su JavaScript. Quedan **Inicio** y **Despacho**. En Inicio, la sección «Herramientas de mis campañas»
+liga a las 7 herramientas de entregables.gruponavarro.mx (`utm_source=bolanosnavarro&utm_medium=web&utm_campaign=<herramienta>`);
+el menú «Herramientas», el botón del hero y la puerta «Grupo Navarro» ligan al índice de entregables.
+Redirecciones que se conservan: `#<herramienta>` y sus ligas cortas → entregables; `#segale`/`/segale` → segale.gruponavarro.mx;
+`#inmobiliaria` → entregables; `#inmuebles` y `/inmuebles` → www.gruponavarro.mx. Aviso de privacidad actualizado
+(sección 11 y fecha 16-oct-2026). El CSS de las vistas quitadas quedó en el archivo, sin efecto.
 
 ## Reglas
 1. Todo cambio se hace por edición directa del HTML, se verifica la sintaxis
