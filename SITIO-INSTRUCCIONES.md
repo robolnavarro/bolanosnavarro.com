@@ -134,6 +134,11 @@ Redirecciones que se conservan: `#<herramienta>` y sus ligas cortas → entregab
 `#inmobiliaria` → entregables; `#inmuebles` y `/inmuebles` → www.gruponavarro.mx. Aviso de privacidad actualizado
 (sección 11 y fecha 16-oct-2026). El CSS de las vistas quitadas quedó en el archivo, sin efecto.
 
+## Publicar desde la Mac (16-oct-2026)
+La Mac mini tiene sesión de GitHub con `gh` (cuenta robolnavarro, credencial en el Llavero de macOS) y git firma
+como «Rodrigo Bolaños Navarro <rodrigo@bolanosnavarro.com>», el correo principal de la cuenta. Ya no hace falta subir
+archivos por la web: `git push origin main` publica.
+
 ## Reglas
 1. Todo cambio se hace por edición directa del HTML, se verifica la sintaxis
    del <script> y se hace commit + push a `main`. Eso ya lo publica.
