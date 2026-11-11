@@ -134,6 +134,14 @@ Redirecciones que se conservan: `#<herramienta>` y sus ligas cortas → entregab
 `#inmobiliaria` → entregables; `#inmuebles` y `/inmuebles` → www.gruponavarro.mx. Aviso de privacidad actualizado
 (sección 11 y fecha 16-oct-2026). El CSS de las vistas quitadas quedó en el archivo, sin efecto.
 
+## 11-nov-2026: sin herramientas; pestaña «Inmobiliaria» a gruponavarro.mx
+Decisión de Rodrigo: se quitaron del sitio las herramientas/entregables (botón «Herramientas» del hero, las puertas y la
+sección «Herramientas de mis campañas»). El menú queda **Inicio · Despacho · Inmobiliaria**; «Inmobiliaria» liga a
+`https://www.gruponavarro.mx/?utm_source=bolanosnavarro&utm_medium=web&utm_campaign=menu` y es el único enlace a
+Grupo Navarro además del pie. `#inmobiliaria` ahora redirige a www.gruponavarro.mx. Las redirecciones de las ligas viejas
+(`#<herramienta>`, ligas cortas, `#segale`) se conservan para no romper reels ni ManyChat. Cifra de trayectoria: **20+ años**
+(Grupo Navarro existe desde 2006), en la banda y en el pie. El CSS de `.doors` y `.hub` quedó en el archivo, sin efecto.
+
 ## Publicar desde la Mac (16-oct-2026)
 La Mac mini tiene sesión de GitHub con `gh` (cuenta robolnavarro, credencial en el Llavero de macOS) y git firma
 como «Rodrigo Bolaños Navarro <rodrigo@bolanosnavarro.com>», el correo principal de la cuenta. Ya no hace falta subir
